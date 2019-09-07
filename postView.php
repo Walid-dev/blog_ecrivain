@@ -19,27 +19,29 @@
 
 <body>
     <div class="col-md-6 justify-content-center">
-        <h1>Mon super blog !</h1>
+        <p><a href="index.php">Retour à la liste des billets</a></p>
+
+        <div class="news">
+            <h3>
+                <?= htmlspecialchars($post['title']) ?>
+                <em>le <?= $post['creation_date_fr'] ?></em>
+            </h3>
+
+            <p>
+                <?= nl2br(htmlspecialchars($post['content'])) ?>
+            </p>
+        </div>
+
+        <h2>Commentaires</h2>
+
         <?php
-        while ($data = $posts->fetch()) {
-            ?>
-            <div class="news mb-4 mt-4">
-                <h4>
-                    <?= htmlspecialchars($data['title']) ?>
-                    <em>le <?= $data['creation_date_fr'] ?></em>
-                </h4>
-                <div>
-                    <?= nl2br(htmlspecialchars($data['content'])) ?>
-                    <p>
-                        <?= nl2br(htmlspecialchars($data['author'])) ?>
-                    </p>
-                    <em><a href="post.php?id=<?= $data['id'] ?>">Commentaires</a></em>
-                </div>
-            </div>
+        while ($comment = $comments->fetch()) {
+                ?>
+            <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
         <?php
     }
-    $posts->closeCursor();
-    ?>
+?>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
