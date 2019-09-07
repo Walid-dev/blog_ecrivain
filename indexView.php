@@ -33,7 +33,7 @@
                     <p>
                         <?= nl2br(htmlspecialchars($data['author'])) ?>
                     </p>
-                    <em><a href="#">Commentaires</a></em>
+                    <em><a href="post.php?id=<?= $data['id'] ?>">Commentaires</a></em>
                 </div>
             </div>
         <?php
