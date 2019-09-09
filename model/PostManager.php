@@ -9,20 +9,12 @@ class PostManager
         return $req;
     }
 
-    public function getPost($postId)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
-        $req->execute(array($postId));
-        $post = $req->fetch();
-
-        return $post;
-    }
 
 
     private function dbConnect()
     {
-        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
+        $db = new mysqli('localhost', 'root', 'root', 'blog') or die(mysql_error($mysqli));
+
         return $db;
     }
 }

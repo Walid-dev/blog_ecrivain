@@ -22,6 +22,7 @@ while ($data = $posts->fetch()) {
             <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>
     </div>
+
 <?php
 }
 $posts->closeCursor();
