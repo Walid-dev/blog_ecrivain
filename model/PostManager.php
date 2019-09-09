@@ -1,28 +1,21 @@
 <?php
 class PostManager
 {
-    public function getPosts()
+    public function postPost()
     {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+        $mysqli = $this->dbConnect();
+        $title = $_POST['title'];
+        $author = $_POST['author'];
+        $content = $_POST['content'];
+        $req = $mysqli->query("INSERT INTO posts (title, content, author, creation_date) VALUES('$title', '$content', '$author', NOW())")
+            or die($mysqli->error);
 
         return $req;
     }
 
-    public function getPost($postId)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
-        $req->execute(array($postId));
-        $post = $req->fetch();
-
-        return $post;
-    }
-
-
     private function dbConnect()
     {
-        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
-        return $db;
+        $mysqli = new mysqli('localhost', 'root', 'root', 'blog') or die(mysql_error($mysqli));
+        return $mysqli;
     }
 }

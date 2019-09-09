@@ -19,6 +19,8 @@
 
 <body>
     <div class="container">
+        <h1>Bonjour</h1>
+        <a href="view/frontend/postView.php">Ajouter un article</a>
         <?= $content ?>
     </div>
     <script src="app.js"></script>
