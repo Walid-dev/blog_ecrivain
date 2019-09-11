@@ -19,6 +19,18 @@ class PostManager
         return $post;
     }
 
+    public function addArticle()
+    { }
+
+    public function postArticle($author, $title, $content)
+    {
+        $db = $this->dbConnect();
+        $article = $db->prepare('INSERT INTO posts(author, title, content, creation_date) VALUES(?, ?, ?, NOW())');
+        $newArticle = $article->execute(array($author, $title, $content));
+
+        return $newArticle;
+    }
+
 
     private function dbConnect()
     {

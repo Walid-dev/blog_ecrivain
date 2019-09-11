@@ -19,6 +19,7 @@
 
 <body>
     <div class="container">
+        <?php require "nav.php" ?>
         <?= $content ?>
     </div>
     <script src="app.js"></script>

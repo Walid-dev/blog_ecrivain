@@ -35,3 +35,21 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+function addArticle()
+{
+    $postManager = new PostManager();
+
+    $addArticle = $postManager->addArticle();
+
+    require('view/frontend/addPostView.php');
+}
+
+function postArticle($author, $title, $content)
+{
+    $postManager = new PostManager();
+
+    $postManager->postArticle($author, $title, $content);
+
+    header('Location: index.php');
+}

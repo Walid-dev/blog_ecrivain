@@ -24,6 +24,25 @@ try { // On essaie de faire des choses
                 // Autre exception
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
+        } elseif ($_GET['action'] == 'addArticle') {
+            addArticle();
+
+            if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+
+                if (isset($_POST['save'])) {
+                    echo "Save";
+                    postArticle($_POST['author'], $_POST['title'], $_POST['content']);
+                } elseif (isset($_POST['edit'])) {
+                    echo "Edit";
+                } elseif (isset($_POST['delete'])) {
+                    echo "Delete";
+                } else {
+                    echo "Rien de se passe";
+                }
+            } else {
+                throw new Exception('Tous les champs ne sont pas remplis !');
+            }
         }
     } else {
         listPosts();
