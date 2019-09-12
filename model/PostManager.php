@@ -20,7 +20,10 @@ class PostManager
     }
 
     public function addArticle()
-    { }
+    {
+        require('view/frontend/addPostView.php');
+    }
+
 
     public function postArticle($author, $title, $content)
     {
@@ -31,6 +34,11 @@ class PostManager
         return $newArticle;
     }
 
+    public function deleteFromDataBase($id)
+    {
+        $db = $this->dbConnect();
+        $db->query("DELETE FROM posts WHERE id=$id ");
+    }
 
     private function dbConnect()
     {

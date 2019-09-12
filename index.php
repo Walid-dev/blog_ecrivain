@@ -43,6 +43,8 @@ try { // On essaie de faire des choses
             } else {
                 throw new Exception('Tous les champs ne sont pas remplis !');
             }
+        } elseif ($_GET['action'] == 'delete') {
+            deleteArticle($_GET['id']);
         }
     } else {
         listPosts();

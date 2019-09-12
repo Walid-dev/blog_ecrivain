@@ -40,9 +40,7 @@ function addArticle()
 {
     $postManager = new PostManager();
 
-    $addArticle = $postManager->addArticle();
-
-    require('view/frontend/addPostView.php');
+    $postManager->addArticle();
 }
 
 function postArticle($author, $title, $content)
@@ -50,6 +48,14 @@ function postArticle($author, $title, $content)
     $postManager = new PostManager();
 
     $postManager->postArticle($author, $title, $content);
+
+    header('Location: index.php');
+}
+
+function deleteArticle($id)
+{
+    $postManager = new PostManager();
+    $postManager->deleteFromDataBase($id);
 
     header('Location: index.php');
 }

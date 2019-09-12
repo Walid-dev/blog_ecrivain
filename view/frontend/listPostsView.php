@@ -20,6 +20,13 @@ while ($data = $posts->fetch()) {
             <?= nl2br(htmlspecialchars($data['content'])) ?>
             <br />
             <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+            <a href="index.php?action=delete&amp;id=<?= $data['id'] ?>" class="btn btn-danger">Delete</a>
+            <?php
+            $check = $data['id'];
+
+            echo "$check"; ?>
+
+
 
         </p>
     </div>
