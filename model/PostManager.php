@@ -40,14 +40,6 @@ class PostManager
         $db->query("DELETE FROM posts WHERE id=$id");
     }
 
-    public function editPost($id)
-    {
-        $db = $this->dbConnect();
-        $result = $db->query("SELECT * FROM data WHERE id=$id");
-
-        return $result;
-    }
-
     private function dbConnect()
     {
         $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');

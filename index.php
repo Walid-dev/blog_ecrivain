@@ -49,7 +49,9 @@ try { // On essaie de faire des choses
         } elseif ($_GET['action'] == 'delete') {
             deleteArticle($_GET['id']);
         } elseif ($_GET['action'] == 'edit') {
-            echo "Editer";
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                editArticle();
+            }
         }
     } else {
         listPosts();

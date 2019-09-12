@@ -59,3 +59,20 @@ function deleteArticle($id)
 
     header('Location: index.php');
 }
+
+function editArticle()
+{
+    $update = true;
+    $postManager = new PostManager(); // Création d'un objet
+
+    $post = $postManager->getPost($_GET['id']);
+
+    require('view/frontend/addPostView.php');
+}
+
+function updateArticle()
+{
+
+
+    header('Location: index.php');
+}
