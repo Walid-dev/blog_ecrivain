@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require('controller/frontendController.php');
 
 try { // On essaie de faire des choses
@@ -45,6 +48,8 @@ try { // On essaie de faire des choses
             }
         } elseif ($_GET['action'] == 'delete') {
             deleteArticle($_GET['id']);
+        } elseif ($_GET['action'] == 'edit') {
+            echo "Editer";
         }
     } else {
         listPosts();

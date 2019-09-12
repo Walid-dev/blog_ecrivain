@@ -37,7 +37,15 @@ class PostManager
     public function deleteFromDataBase($id)
     {
         $db = $this->dbConnect();
-        $db->query("DELETE FROM posts WHERE id=$id ");
+        $db->query("DELETE FROM posts WHERE id=$id");
+    }
+
+    public function editPost($id)
+    {
+        $db = $this->dbConnect();
+        $result = $db->query("SELECT * FROM data WHERE id=$id");
+
+        return $result;
     }
 
     private function dbConnect()

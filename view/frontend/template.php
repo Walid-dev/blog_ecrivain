@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +14,12 @@
         });
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/css/style.css">
     <title><?= $title ?></title>
 </head>
 
 <body>
-    <div class="container">
+    <div id="mainContainer" class="container">
         <?php require "nav.php" ?>
         <?= $content ?>
     </div>

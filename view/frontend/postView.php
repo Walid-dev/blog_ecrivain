@@ -35,7 +35,7 @@ while ($comment = $comments->fetch()) {
         <textarea id="comment" name="comment"></textarea>
     </div>
     <div>
-        <input type="submit" />
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     </div>
 </form>
 <?php $content = ob_get_clean(); ?>

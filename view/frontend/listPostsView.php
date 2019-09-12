@@ -1,9 +1,9 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
 
+<h1>Blog Ecrivain</h1>
+<p>Derniers billets du blog :</p>
 
 <?php
 while ($data = $posts->fetch()) {
@@ -19,15 +19,14 @@ while ($data = $posts->fetch()) {
         <p>
             <?= nl2br(htmlspecialchars($data['content'])) ?>
             <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-            <a href="index.php?action=delete&amp;id=<?= $data['id'] ?>" class="btn btn-danger">Delete</a>
+            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-info">Commentaire</a>
+            <a href="index.php?action=edit&amp;id=<?= $data['id'] ?>" class="btn btn-warning">Editer</a>
+            <a href="index.php?action=delete&amp;id=<?= $data['id'] ?>" class="btn btn-danger">Supprimer</a>
+
             <?php
             $check = $data['id'];
 
             echo "$check"; ?>
-
-
-
         </p>
     </div>
 <?php
