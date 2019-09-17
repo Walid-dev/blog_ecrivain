@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,18 +9,22 @@
     <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#myTextArea'
+            selector: '#myTextArea',
+
         });
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/footer.css">
+
     <title><?= $title ?></title>
 </head>
 
 <body>
-    <div id="mainContainer" class="container">
+    <div id="mainContainer" class="container-fluid p-0">
         <?php require "nav.php" ?>
         <?= $content ?>
+        <?php require "footerView.php" ?>
     </div>
     <script src="app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>

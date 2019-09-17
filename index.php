@@ -29,19 +29,10 @@ try { // On essaie de faire des choses
             }
         } elseif ($_GET['action'] == 'addArticle') {
             addArticle();
-
             if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-
-
                 if (isset($_POST['save'])) {
                     echo "Save";
                     postArticle($_POST['author'], $_POST['title'], $_POST['content']);
-                } elseif (isset($_POST['edit'])) {
-                    echo "Edit";
-                } elseif (isset($_POST['delete'])) {
-                    echo "Delete";
-                } else {
-                    echo "Rien de se passe";
                 }
             } else {
                 throw new Exception('Tous les champs ne sont pas remplis !');
@@ -52,10 +43,13 @@ try { // On essaie de faire des choses
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 editArticle();
             }
+        } elseif (isset($_POST['update'])) {
+            updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content']);
         }
     } else {
         listPosts();
     }
 } catch (Exception $e) { // S'il y a eu une erreur, alors...
-    require('view/frontend/errorView.php');
+    //  require('view/frontend/errorView.php');
+    echo 'Erreur : ' . $e->getMessage();
 }

@@ -39,15 +39,16 @@ function addComment($postId, $author, $comment)
 function addArticle()
 {
     $postManager = new PostManager();
-
     $postManager->addArticle();
 }
 
 function postArticle($author, $title, $content)
 {
     $postManager = new PostManager();
-
     $postManager->postArticle($author, $title, $content);
+
+    $_SESSION['message'] = "L'article a été ajouté.";
+    $_SESSION['msg_type'] = "success";
 
     header('Location: index.php');
 }
@@ -57,22 +58,27 @@ function deleteArticle($id)
     $postManager = new PostManager();
     $postManager->deleteFromDataBase($id);
 
+    $_SESSION['message'] = "L'article a été supprimé.";
+    $_SESSION['msg_type'] = "danger";
+
     header('Location: index.php');
 }
 
 function editArticle()
 {
-    $update = true;
-    $postManager = new PostManager(); // Création d'un objet
-
+    $postManager = new PostManager();
     $post = $postManager->getPost($_GET['id']);
 
-    require('view/frontend/addPostView.php');
+    require('view/frontend/editPostView.php');
 }
 
-function updateArticle()
+function updateArticle($id, $author, $title, $content)
 {
+    $postManager = new PostManager();
+    $postManager->updatePost($id, $author, $title, $content);
 
+    $_SESSION['message'] = "L'article a été mis à jour.";
+    $_SESSION['msg_type'] = "info";
 
     header('Location: index.php');
 }

@@ -21,6 +21,7 @@ class PostManager
 
     public function addArticle()
     {
+        $update = false;
         require('view/frontend/addPostView.php');
     }
 
@@ -40,9 +41,16 @@ class PostManager
         $db->query("DELETE FROM posts WHERE id=$id");
     }
 
+    public function updatePost($id, $author, $title, $content)
+    {
+        $db = $this->dbConnect();
+        $db->query("UPDATE posts SET author='$author' , title='$title', content='$content' WHERE id='$id'");
+    }
+
     private function dbConnect()
     {
         $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
+
         return $db;
     }
 }
