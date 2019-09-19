@@ -21,7 +21,6 @@ class PostManager
 
     public function addArticle()
     {
-        $update = false;
         require('view/frontend/addPostView.php');
     }
 

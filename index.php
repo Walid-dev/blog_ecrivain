@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require('controller/frontendController.php');
 
 try { // On essaie de faire des choses
@@ -31,7 +29,6 @@ try { // On essaie de faire des choses
             addArticle();
             if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
                 if (isset($_POST['save'])) {
-                    echo "Save";
                     postArticle($_POST['author'], $_POST['title'], $_POST['content']);
                 }
             } else {
@@ -45,6 +42,15 @@ try { // On essaie de faire des choses
             }
         } elseif (isset($_POST['update'])) {
             updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content']);
+        } elseif ($_GET['action'] == 'signup') {
+            getSigned();
+            if (isset($_POST['signup-submit'])) {
+                echo "Hello";
+                signup();
+            } else {
+                //   header("Location: index.php?action=signup");
+                exit();
+            }
         }
     } else {
         listPosts();

@@ -2,18 +2,18 @@
 
 <?php ob_start(); ?>
 
+<?php if (isset($_SESSION['message'])) : ?>
+
+    <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
+        <?php echo $_SESSION['message'];
+        unset($_SESSION['message']);
+        ?>
+    </div>
+<?php endif ?>
+
 <div class="container-fluid">
-    <h1>Blog Ecrivain</h1>
-    <p>Derniers billets du blog :</p>
-    <?php if (isset($_SESSION['message'])) : ?>
-
-        <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
-            <?php echo $_SESSION['message'];
-            unset($_SESSION['message']);
-            ?>
-        </div>
-    <?php endif ?>
-
+    <h1 class="display-3">Blog Ecrivain</h1>
+    <h3><small class="text-muted">Derniers billets du blog :</small></h3>
     <?php
     while ($data = $posts->fetch()) {
         ?>
@@ -23,7 +23,7 @@
                 <em>le <?= $data['creation_date_fr'] ?></em>
             </h3>
             <p>
-                <?= nl2br(htmlspecialchars($data['content'])) ?>
+                <?= strip_tags($data['content']) ?>
                 <br />
                 <p><?= ($data['author']) ?></p>
                 <div class="btnBox mt-3">
