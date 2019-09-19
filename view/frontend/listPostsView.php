@@ -14,6 +14,7 @@
 <div class="container-fluid">
     <h1 class="display-3">Blog Ecrivain</h1>
     <h3><small class="text-muted">Derniers billets du blog :</small></h3>
+    <a href="index.php?action=addArticle">Ajouter Article</a>
     <?php
     while ($data = $posts->fetch()) {
         ?>

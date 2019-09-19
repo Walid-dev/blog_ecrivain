@@ -3,7 +3,11 @@
 require('controller/frontendController.php');
 
 try { // On essaie de faire des choses
-    if (isset($_GET['action'])) {
+    if (isset($_POST['login-submit'])) {
+        echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo re magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate veli t esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, s u nt in culpa qui officia deserunt mollit anim id est laborum.";
+    } elseif (isset($_POST['signup-submit'])) {
+        signup();
+    } elseif (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
         } elseif ($_GET['action'] == 'post') {
@@ -42,15 +46,6 @@ try { // On essaie de faire des choses
             }
         } elseif (isset($_POST['update'])) {
             updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content']);
-        } elseif ($_GET['action'] == 'signup') {
-            getSigned();
-            if (isset($_POST['signup-submit'])) {
-                echo "Hello";
-                signup();
-            } else {
-                //   header("Location: index.php?action=signup");
-                exit();
-            }
         }
     } else {
         listPosts();
