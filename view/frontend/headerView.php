@@ -17,10 +17,27 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/footer.css">
 
-    <title>Login System Php MySql</title>
+    <title>Blog Ecrivain</title>
 </head>
 
 <body>
+
+    <header class=" d-flex justify-content-between align-items-center">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">
+                <img src="public/images/logo.png" width="40" height="40" alt="">
+            </a>
+        </nav><?php
+                if (isset($_SESSION['userId'])) {
+                    echo '<form class="form-inline my-2 my-lg-0" action="index.php" method="post">
+                    <button class="btn modal_btn mx-3" type="submit" name="logout-submit">Logout</button>
+                </form>';
+                } else {
+                    require "view/frontend/logModalView.php";
+                }
+                ?>
+
+    </header>
 
     <header>
         <div>
@@ -33,44 +50,20 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" href="index.php?action=addArticle">Ajouter article</a>
                         </li>
                     </ul>
                     <?php
                     if (isset($_SESSION['userId'])) {
-                        echo '<form class="form-inline my-2 my-lg-0" action="includes/logout.inc.php" method="post">
-                    <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit" name="logout-submit">Logout</button>
+                        echo '<form class="form-inline my-2 my-lg-0" action="index.php" method="post">
+                    <button class="btn btn-sm my-2 my-sm-0" type="submit" name="logout-submit">Logout</button>
                 </form>';
                     } else {
                         echo '<form class="form-inline my-2 my-lg-0"  action="index.php" method="post">
                         <input class="form-control form-control-sm mr-sm-2" type="text" name="mailuid" placeholder="Username/E-mail..">
                         <input class="form-control form-control-sm mr-sm-2" type="password" name="pwd" placeholder="Password">
-                        <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" name="login-submit">Login</button>
-                        <span class="nav-item dropdown">
-                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          S\'enregistrer
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a href="signup.php" class="dropdown-item btn btn-sm" href="#">SignUp</a>
-                        </div>
-                      </span>
+                        <button class="btn btn-sm my-2 my-sm-0" type="submit" name="login-submit">Login</button>
+                        <a href="signup.php" class="btn btn-sm ml-2" href="#"> S\'inscrire</a>
                     </form>';
                     }
                     ?>

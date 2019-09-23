@@ -13,6 +13,18 @@ function signup()
     $signup = $loginSystemManager->signup();
 }
 
+function login()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $login = $loginSystemManager->login();
+}
+
+
+function logout()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $logout = $loginSystemManager->logout();
+}
 
 
 
@@ -91,4 +103,16 @@ function updateArticle($id, $author, $title, $content)
     $_SESSION['msg_type'] = "info";
 
     header('Location: index.php');
+}
+
+function addUser()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $addUser = $loginSystemManager->addUser();
+}
+
+function loginPdo()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $addUser = $loginSystemManager->loginPdo();
 }

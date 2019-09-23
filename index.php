@@ -4,9 +4,15 @@ require('controller/frontendController.php');
 
 try { // On essaie de faire des choses
     if (isset($_POST['login-submit'])) {
-        echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo re magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate veli t esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, s u nt in culpa qui officia deserunt mollit anim id est laborum.";
+        login();
+    } elseif (isset($_POST['login-submit2'])) {
+        loginPdo();
     } elseif (isset($_POST['signup-submit'])) {
         signup();
+    } elseif (isset($_POST['signup-submit2'])) {
+        addUser();
+    } elseif (isset($_POST['logout-submit'])) {
+        logout();
     } elseif (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
@@ -33,7 +39,7 @@ try { // On essaie de faire des choses
             addArticle();
             if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
                 if (isset($_POST['save'])) {
-                    postArticle($_POST['author'], $_POST['title'], $_POST['content']);
+                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), strip_tags($_POST['content']));
                 }
             } else {
                 throw new Exception('Tous les champs ne sont pas remplis !');
