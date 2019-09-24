@@ -7,17 +7,19 @@ require_once('model/CommentManager.php');
 require_once('model/loginSystemManager.php');
 
 
-function signup()
+function addUser()
 {
     $loginSystemManager = new LoginSystemManager();
-    $signup = $loginSystemManager->signup();
+    $addUser = $loginSystemManager->addUser();
 }
 
 function login()
 {
     $loginSystemManager = new LoginSystemManager();
-    $login = $loginSystemManager->login();
+    $addUser = $loginSystemManager->login();
 }
+
+
 
 
 function logout()
@@ -73,6 +75,8 @@ function postArticle($author, $title, $content)
 
     $_SESSION['message'] = "L'article a été ajouté.";
     $_SESSION['msg_type'] = "success";
+
+    header('Location: index.php');
 }
 
 function deleteArticle($id)
@@ -103,16 +107,4 @@ function updateArticle($id, $author, $title, $content)
     $_SESSION['msg_type'] = "info";
 
     header('Location: index.php');
-}
-
-function addUser()
-{
-    $loginSystemManager = new LoginSystemManager();
-    $addUser = $loginSystemManager->addUser();
-}
-
-function loginPdo()
-{
-    $loginSystemManager = new LoginSystemManager();
-    $addUser = $loginSystemManager->loginPdo();
 }

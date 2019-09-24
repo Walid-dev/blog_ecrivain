@@ -10,6 +10,7 @@ class LoginSystemManager
         $password = $_POST['pwd'];
         $passwordRepeat = $_POST['pwd-repeat'];
 
+
         if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
             header("Location: index.php?error=emptyfields&uid=" . $username . "&mail=" . $email);
             exit();
@@ -39,12 +40,14 @@ class LoginSystemManager
 
                 $request = $db->prepare('INSERT INTO users (uidUsers , emailUsers, pwdUsers) VALUE (?, ?, ?) ');
                 $request->execute(array($username, $email, $hachedPwd));
+
+                header("Location: index.php?success");
             }
         }
     }
 
 
-    public function loginPdo()
+    public function login()
     {
         $db = $this->dbConnect();
 
@@ -64,6 +67,9 @@ class LoginSystemManager
                 session_start();
                 $_SESSION['userId'] = $user['idUsers'];
                 $_SESSION['userUid'] = $user['uidUsers'];
+                $_SESSION['usertype'] = $user['type'];
+                require('view/frontend/headerView.php');
+
                 header("Location: index.php?login=success");
             } else {
                 header("Location: index.php?error=wrongpwd");

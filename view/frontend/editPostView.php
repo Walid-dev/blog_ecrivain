@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <h1>Mon super blog !</h1>
-<p><a class="btn btn-secondary mt-3" href="index.php">Retour à la liste des billets</a></p>
+<p><a class="btn modal_btn" href="index.php">Retour à la liste des billets</a></p>
 
 <h2>Editer un article</h2>
 

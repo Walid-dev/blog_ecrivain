@@ -1,15 +1,11 @@
 <?php
-
+session_start();
 require('controller/frontendController.php');
 
 try { // On essaie de faire des choses
     if (isset($_POST['login-submit'])) {
         login();
-    } elseif (isset($_POST['login-submit2'])) {
-        loginPdo();
     } elseif (isset($_POST['signup-submit'])) {
-        signup();
-    } elseif (isset($_POST['signup-submit2'])) {
         addUser();
     } elseif (isset($_POST['logout-submit'])) {
         logout();
