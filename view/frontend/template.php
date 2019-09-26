@@ -14,12 +14,13 @@
     <script>
         tinymce.init({
             selector: '#myTextArea',
+
         });
     </script>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/footer.css">
 
-    <title>Blog Ecrivain</title>
+    <title>"Billet simple pour l'Alaska"</title>
 </head>
 
 <body>
@@ -28,7 +29,6 @@
 
     <body>
         <div class="main_wrapper">
-
             <?php if (isset($_SESSION['message'])) : ?>
                 <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
                     <?php echo $_SESSION['message'];
@@ -40,6 +40,12 @@
 
         <?php require "view/frontend/footerView.php" ?>
         <script src="public/js/app.js"></script>
+        <script src="public/js/scroll-out.js"></script>
+        <script type="text/javascript">
+            ScrollOut({
+                targets: 'h2,h3,p,a,blockquote,.masthead_title,.alert'
+            })
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>

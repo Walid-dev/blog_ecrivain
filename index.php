@@ -31,23 +31,33 @@ try { // On essaie de faire des choses
                 // Autre exception
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
-        } elseif ($_GET['action'] == 'addArticle') {
-            addArticle();
-            if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-                if (isset($_POST['save'])) {
-                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), strip_tags($_POST['content']));
+        } elseif (isset($_SESSION['userId'])) {
+
+
+
+            if ($_GET['action'] == 'addArticle') {
+                addArticle();
+                if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+                    if (isset($_POST['save'])) {
+                        postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content']);
+                    }
+                } else {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
                 }
-            } else {
-                throw new Exception('Tous les champs ne sont pas remplis !');
+            } elseif ($_GET['action'] == 'delete') {
+                deleteArticle($_GET['id']);
+            } elseif ($_GET['action'] == 'edit') {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    editArticle();
+                }
+            } elseif (isset($_POST['update'])) {
+                updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content']);
             }
-        } elseif ($_GET['action'] == 'delete') {
-            deleteArticle($_GET['id']);
-        } elseif ($_GET['action'] == 'edit') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                editArticle();
-            }
-        } elseif (isset($_POST['update'])) {
-            updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content']);
+        } else {
+            $_SESSION['message'] = "Page reservée aux administrateurs";
+            $_SESSION['msg_type'] = "danger";
+
+            header('Location: index.php');
         }
     } else {
         listPosts();

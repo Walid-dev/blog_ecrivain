@@ -29,9 +29,7 @@ class PostManager
     {
         $db = $this->dbConnect();
         $article = $db->prepare('INSERT INTO posts(author, title, content, creation_date) VALUES(?, ?, ?, NOW())');
-        $newArticle = $article->execute(array($author, $title, $content));
-
-        return $newArticle;
+        $article->execute(array($author, $title, $content));
     }
 
     public function deleteFromDataBase($id)

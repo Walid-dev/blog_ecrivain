@@ -66,6 +66,12 @@ function addArticle()
 {
     $postManager = new PostManager();
     $postManager->addArticle();
+    //  unset($_POST);
+}
+
+function redirect()
+{
+    require("view/frontend/addPostView");
 }
 
 function postArticle($author, $title, $content)

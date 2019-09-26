@@ -1,27 +1,28 @@
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p><a class="btn modal_btn" href="index.php">
-        < Retour à la liste des billets</a> </p> <h2>Ajouter un article</h2>
+<div id="addPostContainer" class="container">
+    <h1 class="text-center pt-5">Ajouter un article</h1>
+    <hr class="mt-2 mb-2">
+    <p><a class="btn return_btn mb-2 mt-2" href="index.php">
+            < Retour à la liste des chapitre</a> </p> <h2>Ajouter un article</h2>
 
+                <form action="index.php?action=addArticle" method="post">
+                    <div class="form-group">
+                        <label for="author">Auteur</label><br>
+                        <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" value="author" />
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Titre</label><br>
+                        <input class="form-control" placeholder="Titre" id="title" name="title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Texte</label><br />
+                        <textarea id="myTextArea" name="content"></textarea>
+                    </div>
+                    <div id="buttonBox" class="d-flex mt-4">
+                        <button class="btn btn-info ml-1" type="submit" name="save">Poster</button>
+                    </div>
+                </form>
+</div>
+<?php $content = ob_get_clean(); ?>
 
-            <form action="index.php?action=addArticle" method="post">
-                <div>
-                    <label for="author">Auteur</label>
-                    <input type="text" id="author" name="author" value="author" />
-                </div>
-                <div>
-                    <label for="title">Titre</label>
-                    <textarea id="title" name="title">Texte</textarea>
-                </div>
-                <div>
-                    <label for="title">Texte</label><br />
-                    <textarea id="myTextArea" name="content"></textarea>
-                </div>
-                <div id="buttonBox" class="d-flex mt-4">
-                    <button class="btn btn-primary" type="submit" name="save">Save</button>
-                </div>
-            </form>
-
-            <?php $content = ob_get_clean(); ?>
-
-            <?php require('template.php'); ?>
+<?php require('template.php'); ?>

@@ -1,7 +1,7 @@
 <header class="masthead">
     <nav class="navbar navbar-expand-lg d-flex d-flex justify-content-between">
         <a class="navbar-brand" href="#">
-            <img src="public/images/logo.png" width="40" height="40" alt="">
+            <img src="https://media.giphy.com/media/OqAeQrRDGhKc4Viqfj/giphy.gif" width="70" height="70" alt="">
         </a>
 
         <div>
@@ -14,7 +14,6 @@
             ?>
         </div>
     </nav>
-
     <div class="">
         <?php
         if (isset($_SESSION['userId'])) {
@@ -24,8 +23,10 @@
         }
         ?>
     </div>
-
-
+    <div class="title_box text-center mt-2 mb-2">
+        <h1 class="masthead_title">"Billet simple pour l'Alaska"</h1>
+        <hr>
+    </div>
 </header>
 
 
@@ -45,7 +46,7 @@
         } elseif ($_GET['error'] == "usertaken") {
             echo '<div class="alert alert-danger">Pseudo déja utilisé.</div>';
         } elseif ($_GET['error'] == "wrongpwd") {
-            echo '<div class="alert alert-danger">mauvais mdp</div>';
+            echo '<div class="alert alert-danger">Mot de passe incorrect.</div>';
         } elseif ($_GET['signup'] == "success") {
             echo '<div class="alert alert-success">Vous etes maintenant connécté.</div>';
         }
