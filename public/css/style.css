@@ -1,9 +1,26 @@
-body {
+* {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
     font-family: consolas;
-    background: #262626;
+    background: #1f2833;
     color: #fff;
+    font-family: "Big Shoulders Display", cursive;
+}
+
+#top {
+    position: fixed;
+    bottom: 70px;
+    right: 40px;
+    width: 45px;
+    opacity: 0.5;
+}
+
+#top img {
+    width: 45px;
 }
 
 .title_box {
@@ -66,7 +83,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: forestgreen;
+    background: #c5c6c7;
     border-radius: 1px;
     transform-origin: right;
     transition: 0.5s;
@@ -128,7 +145,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: deepskyblue;
+    background: #66fcf1;
     border-radius: 1px;
     transform-origin: left;
     transition: 0.5s;
@@ -157,6 +174,7 @@ body {
 }
 
 .articles_section .article_content p {
+    color: #c5c6c7;
     font-size: 1.2em;
     transition: 1s;
     opacity: 0;
@@ -203,7 +221,7 @@ blockquote[data-scroll="in"] {
     position: relative;
     background: transparent;
     color: #fff;
-    border: 1px solid #a9a0ab;
+    border: 1px solid #66fcf1;
     padding: 8px 16px;
     font-size: 14px;
     display: inline-block;
@@ -273,9 +291,10 @@ blockquote[data-scroll="in"] {
 }
 
 .articles_hr {
-    width: 15%;
-    margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.082);
+    border: 1px solid #66fcf1;
+    padding-top: 1px;
+    background: #c5c6c7;
+    opacity: 0.1;
 }
 
 .tox-notifications-container {
@@ -302,7 +321,7 @@ blockquote[data-scroll="in"] {
 }
 
 .modal_btn {
-    border: 1px solid #a9a0ab;
+    border: 1px solid #c5c6c7;
     padding: 6px 8px;
     font-size: 12px;
     letter-spacing: 1px;
@@ -311,7 +330,7 @@ blockquote[data-scroll="in"] {
 }
 
 .return_btn {
-    border: 1px solid #a9a0ab;
+    border: 1px solid #c5c6c7;
     border-radius: 30px 4px 4px 30px;
     padding: 8px 16px;
     font-size: 12px;
@@ -321,34 +340,52 @@ blockquote[data-scroll="in"] {
 }
 
 .log_btn {
-    background: #262626;
+    border: 1px solid #66fcf1;
+    background: #1f28334a;
     color: #fff;
-    border: 1px solid #fff;
-    padding: 6px 12px;
     font-size: 12px;
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: lighter;
 }
 
+.up:hover,
+.up:focus {
+    box-shadow: inset 0 -3.25em 0 0 #66fcf1;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.up {
+    transition: 0.3s;
+}
+.up:hover,
+.up:focus {
+    border-color: #66fcf1;
+    color: #1f2833;
+}
+
 .online_msg_green {
     float: right;
-    background: #262626;
+    border: 1px solid #fff;
+    background: #66fcf285;
     font-size: 12px;
     padding: 6px 12px;
-    border: 1px solid #fff;
     border-radius: 2px;
-    color: #05db05;
+    color: #000;
 }
 
 .online_msg_red {
     float: right;
-    background: #262626;
+    border: 1px solid #fff;
+    background: #66fcf285;
     font-size: 12px;
     padding: 6px 12px;
-    border: 1px solid #fff;
     border-radius: 2px;
-    color: #fb2a2a;
+    color: #000;
 }
 
 .modal_form {
@@ -356,7 +393,11 @@ blockquote[data-scroll="in"] {
     flex-direction: column;
 }
 
-.modal-footer {
+.modal-backdrop {
+    position: static;
+}
+
+.login_modal_footer {
     border: none;
 }
 
@@ -375,8 +416,9 @@ a {
 
 .masthead {
     position: relative;
-    height: 90vh;
-    background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0, rgba(22, 22, 22, 0.6) 75%, #161616 100%),
+    height: 95vh;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0, rgba(22, 22, 22, 0.6) 75%, rgba(22, 22, 22, 1) 100%),
         url(../images/alaska2.jpg);
     background-position-x: 0%, 0%;
     background-position-y: 0%, 0%;
@@ -389,12 +431,16 @@ a {
     background-size: cover;
 }
 
+.masthead_author_name {
+    opacity: 0.55;
+}
+
 .modal {
     background: #0808088c;
 }
 
-.modal-content {
-    background: url(../images/bear.jpg);
+.login_modal_content {
+    background: url(../images/iceberg.jpg);
     background-position-x: 0%, 0%;
     background-position-y: 0%, 0%;
     background-repeat: repeat, repeat;
@@ -405,8 +451,20 @@ a {
     background-attachment: scroll;
     background-size: cover;
     border-radius: 10px;
-    border: 1px solid #a9a0ab;
+    border: 1px solid #fff;
     min-height: 75vh;
+    overflow: hidden;
+}
+
+.login_modal_content .form-control {
+}
+
+#modalLRForm button {
+    border: 1px solid #66fcf1;
+}
+
+#deleteModalContent {
+    color: black;
 }
 
 ::placeholder {
@@ -428,7 +486,24 @@ a {
     background: rgba(68, 67, 67, 0.8);
     color: white;
     border: 1px solid white;
-    height: 20vh;
+    height: 40vh;
     overflow-y: auto;
     border-radius: 4px;
+}
+
+.footer {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#commentsTable {
+    background: transparent;
+    color: #fff;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    background: rgba(0, 0, 0, 0.486);
 }

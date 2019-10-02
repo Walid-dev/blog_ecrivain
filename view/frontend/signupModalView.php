@@ -2,7 +2,7 @@
     <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog cascading-modal" role="document">
             <!--Content-->
-            <div class="modal-content">
+            <div class="modal-content login_modal_content">
 
                 <!--Modal cascading tabs-->
                 <div class="modal-c-tabs">
@@ -10,11 +10,11 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs border-0 md-tabs tabs-2 light-blue darken-3" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active modal_btn border-0 pl-3 text-white" data-toggle="tab" href="#panel7" role="tab">
+                            <a class="modal_btn nav-link active border-0 pl-3 text-white" data-toggle="tab" href="#panel7" role="tab">
                                 Se connecter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link modal_btn border-0 text-white" data-toggle="tab" href="#panel8" role="tab">
+                            <a class="modal_btn nav-link border-0 text-white" data-toggle="tab" href="#panel8" role="tab">
                                 Créer votre compte</a>
                         </li>
                     </ul>
@@ -32,17 +32,17 @@
                                         <hr class="col-1">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control form-control-lg mr-sm-2 mt-2" type="text" name="mailuid" placeholder="Username/E-mail..">
+                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="text" name="mailuid" placeholder="Username/E-mail..">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control form-control-lg mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password">
+                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password">
                                     </div>
-                                    <button class="btn modal_btn mt-3" type="submit" name="login-submit">Connection</button>
+                                    <button class="btn up modal_btn mt-3" type="submit" name="login-submit">Connection</button>
                                 </form>
                             </div>
                             <!--Footer-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn modal_btn" data-dismiss="modal">Fermer</button>
+                            <div class="modal-footer login_modal_footer">
+                                <button type="button" class="up btn modal_btn" data-dismiss="modal">Fermer</button>
                             </div>
 
                         </div>
@@ -60,20 +60,20 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col form-group">
-                                            <input type="text" class="form-control form-control-lg mr-sm-2 mt-2" name="uid" placeholder="Pseudo">
+                                            <input type="text" class="form-control form-control-sm mr-sm-2 mt-2" name="uid" placeholder="Pseudo">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row end.// -->
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-lg mr-sm-2 mt-2" name="mail" placeholder="E-mail">
+                                        <input type="email" class="form-control form-control-sm mr-sm-2 mt-2" name="mail" placeholder="E-mail">
                                     </div> <!-- form-group end.// -->
                                     <div class="form-group">
-                                        <input class="form-control form-control-lg mr-sm-2 mt-2" type="password" name="pwd" placeholder="Mot de passe">
+                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="password" name="pwd" placeholder="Mot de passe">
                                     </div> <!-- form-group end.// -->
                                     <div class="form-group">
-                                        <input class="form-control form-control-lg mr-sm-2 mt-2" type="password" name="pwd-repeat" placeholder="Répeter Mot de passe">
+                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="password" name="pwd-repeat" placeholder="Répeter Mot de passe">
                                     </div> <!-- form-group end.// -->
                                     <div class="form-group">
-                                        <button type="submit" class="btn  modal_btn mt-3" name="signup-submit">Créer</button>
+                                        <button type="submit" class="up btn modal_btn mt-3" name="signup-submit">Créer</button>
                                     </div> <!-- form-group// -->
 
                                 </form>
@@ -81,7 +81,7 @@
                             </div>
                             <!--Footer-->
                             <div class="modal-footer">
-                                <button type="button" class="btn modal_btn" data-dismiss="modal">Fermer</button>
+                                <button type="button" class="up btn modal_btn" data-dismiss="modal">Fermer</button>
                             </div>
                         </div>
                         <!--/.Panel 8-->
@@ -95,4 +95,4 @@
     <!--Modal: Login / Register Form-->
 
 
-    <a href="" class="btn log_btn mx-3" data-toggle="modal" data-target="#modalLRForm">S'identifier / S'enregistrer</a>
+    <a href="" class="up btn log_btn mx-3" data-toggle="modal" data-target="#modalLRForm">Créer un compte / Se connecter</a>

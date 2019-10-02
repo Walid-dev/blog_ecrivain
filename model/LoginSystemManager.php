@@ -30,15 +30,24 @@ class LoginSystemManager
 
             $request = $db->prepare("SELECT emailUsers FROM users WHERE emailUsers=?");
             $request->execute(array($email));
-            $usernameCheck =  $request->rowCount();
-            if ($usernameCheck > 0) {
-                header("Location: index.php?error=usertaken&mail= . $username");
+
+            $request2 = $db->prepare("SELECT uidUsers FROM users WHERE uidUsers=?");
+            $request2->execute(array($username));
+
+
+            $emailCheck =  $request->rowCount();
+            $usernameCheck = $request2->rowCount();
+
+            if ($emailCheck > 0) {
+                header("Location: index.php?error=emailtaken&mail= . $email");
                 exit();
+            } elseif ($usernameCheck > 0) {
+                header("Location: index.php?error=usertaken&username= . $username");
             } else {
 
                 $hachedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-                $request = $db->prepare('INSERT INTO users (uidUsers , emailUsers, pwdUsers) VALUE (?, ?, ?) ');
+                $request = $db->prepare('INSERT INTO users (uidUsers , emailUsers, pwdUsers, type) VALUE (?, ?, ?, 1) ');
                 $request->execute(array($username, $email, $hachedPwd));
 
                 header("Location: index.php?success");

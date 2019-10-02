@@ -1,6 +1,6 @@
 <!-- Footer -->
-<footer class="bg-black small text-center">
+<footer class="footer small text-center">
     <div class="container">
-        Copyright &copy; Your Website 2019
+        Copyright &copy; galaxysurfing.com 2019
     </div>
 </footer>

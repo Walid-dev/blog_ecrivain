@@ -49,6 +49,24 @@ function post()
     require('view/frontend/postView.php');
 }
 
+function listComments()
+{
+    $commentManager = new CommentManager();
+    $comments = $commentManager->listComments();
+
+    require('view/frontend/listCommentsView.php');
+}
+
+function deleteComment($id)
+{
+
+    $commentManager = new CommentManager();
+    $commentManager->listComments();
+    $commentManager->deleteComment($id);
+
+    header('Location: index.php?action=listComments#tableCommentsTitle');
+}
+
 function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
@@ -69,11 +87,6 @@ function addArticle()
     //  unset($_POST);
 }
 
-function redirect()
-{
-    require("view/frontend/addPostView");
-}
-
 function postArticle($author, $title, $content)
 {
     $postManager = new PostManager();
@@ -81,8 +94,6 @@ function postArticle($author, $title, $content)
 
     $_SESSION['message'] = "L'article a été ajouté.";
     $_SESSION['msg_type'] = "success";
-
-    header('Location: index.php');
 }
 
 function deleteArticle($id)
