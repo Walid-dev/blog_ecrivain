@@ -17,10 +17,6 @@
     <div class="title_box text-center mt-2 mb-2">
         <hr>
         <h1 class="masthead_title">"Billet simple pour l'Alaska"</h1>
-        <h2 class="masthead_author_name">Jean Forteroche</h2>
-        <?php if (isset($_SESSION['userUid'])) {
-            echo   "<h3>Bonjour "  . $_SESSION['userUid'] . "</h3>";
-        } ?>
         <hr>
     </div>
 </header>
@@ -32,7 +28,7 @@
         if ($_GET['error'] == "emptyfields") {
             echo '<div class="alert alert-danger">Remplir tous les champs.</div>';
         } elseif ($_GET['error'] == "invaliduidmail") {
-            echo '<div class="alert alert-danger">Pseudo email invalides.</div>';
+            echo '<div class="alert alert-danger" >Pseudo email invalides.</div>';
         } elseif ($_GET['error'] == "invaliduid") {
             echo '<div class="alert alert-danger">Pseudo invalide.</div>';
         } elseif ($_GET['error'] == "invalidmail") {

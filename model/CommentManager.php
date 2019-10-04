@@ -5,7 +5,7 @@ class CommentManager
     public function listComments()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY report DESC LIMIT 0, 50');
+        $req = $db->query('SELECT id, post_id, author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY report DESC LIMIT 0, 50');
 
         return $req;
     }

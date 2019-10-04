@@ -31,20 +31,20 @@
                                         <h5>Se connecter</h5>
                                         <hr class="col-1">
                                     </div>
-                                    <div class="form-group">
-                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="text" name="mailuid" placeholder="Username/E-mail..">
+                                    <div class="form-group mb-0">
+                                        <input id="email2" class="form-control form-control mr-sm-2 mt-2" type="text" name="mailuid" placeholder="Username/E-mail..">
+                                        <span class="ml-2" id='result2'></span>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password">
+                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password">
                                     </div>
-                                    <button class="btn up modal_btn mt-3" type="submit" name="login-submit">Connection</button>
+                                    <button id="validate2" class="btn up modal_btn mt-3" type="submit" name="login-submit">Connection</button>
                                 </form>
                             </div>
                             <!--Footer-->
                             <div class="modal-footer login_modal_footer">
                                 <button type="button" class="up btn modal_btn" data-dismiss="modal">Fermer</button>
                             </div>
-
                         </div>
                         <!--/.Panel 7-->
 
@@ -53,31 +53,30 @@
 
                             <!--Body-->
                             <div class="modal-body">
-                                <form class=" modal_form" action="index.php" method="post">
+                                <form class="modal_form" action="index.php" method="post">
                                     <div class="form-group text-center mt-3 text-white">
                                         <h5>Créer votre compte</h5>
                                         <hr class="col-1">
                                     </div>
                                     <div class="form-row">
                                         <div class="col form-group">
-                                            <input type="text" class="form-control form-control-sm mr-sm-2 mt-2" name="uid" placeholder="Pseudo">
+                                            <input type="text" class="form-control form-control mr-sm-2 mt-2" name="uid" placeholder="Pseudo">
                                         </div> <!-- form-group end.// -->
                                     </div> <!-- form-row end.// -->
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-sm mr-sm-2 mt-2" name="mail" placeholder="E-mail">
+                                    <div class="form-group mb-0">
+                                        <input id="email" type="email" class="form-control form-control mr-sm-2 mt-2" name="mail" placeholder="E-mail">
+                                        <span class="ml-2" id='result'></span>
                                     </div> <!-- form-group end.// -->
                                     <div class="form-group">
-                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="password" name="pwd" placeholder="Mot de passe">
+                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd" placeholder="Mot de passe">
                                     </div> <!-- form-group end.// -->
                                     <div class="form-group">
-                                        <input class="form-control form-control-sm mr-sm-2 mt-2" type="password" name="pwd-repeat" placeholder="Répeter Mot de passe">
+                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd-repeat" placeholder="Répeter Mot de passe">
                                     </div> <!-- form-group end.// -->
                                     <div class="form-group">
-                                        <button type="submit" class="up btn modal_btn mt-3" name="signup-submit">Créer</button>
+                                        <button id="validate" type="submit" class="up btn modal_btn mt-3" name="signup-submit">Créer</button>
                                     </div> <!-- form-group// -->
-
                                 </form>
-
                             </div>
                             <!--Footer-->
                             <div class="modal-footer">

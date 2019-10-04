@@ -11,12 +11,12 @@
 
         <div class="form-group">
             <label for="title">Titre</label>
-            <input id="title" class="form-control" name="title" value="<?= $post['title'] ?>"></input>
+            <input id="title" class="form-control" name="title" value="<?= $post['title'] ?>" />
         </div>
 
         <div class="form-group">
             <label for="title">Texte</label><br>
-            <textarea id="myTextArea" name="content"><?= $post['content'] ?>></textarea>
+            <textarea id="myTextArea" name="content"><?= $post['content'] ?></textarea>
         </div>
 
         <div id="buttonBox" class="d-flex mt-4">
