@@ -37,12 +37,12 @@ try { // On essaie de faire des choses
 
                 if ($_GET['action'] == 'addArticle') {
                     addArticle();
-                    if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-                        if (isset($_POST['save'])) {
+                    if (isset($_POST['save'])) {
+                        if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
                             postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content']);
+                        } else {
+                            throw new Exception('Tous les champs ne sont pas remplis !');
                         }
-                    } else {
-                        throw new Exception('Tous les champs ne sont pas remplis !');
                     }
                 } elseif ($_GET['action'] == 'delete') {
                     deleteArticle($_GET['id']);

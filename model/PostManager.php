@@ -4,7 +4,7 @@ class PostManager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 10');
 
         return $req;
     }
@@ -36,6 +36,7 @@ class PostManager
     {
         $db = $this->dbConnect();
         $db->query("DELETE FROM posts WHERE id=$id");
+        $db->query("DELETE FROM comments WHERE post_id=$id");
     }
 
     public function updatePost($id, $author, $title, $content)

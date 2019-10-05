@@ -8,7 +8,7 @@
     <form action="index.php?action=addArticle" method="post">
         <div class="form-group">
             <label for="author">Auteur</label><br>
-            <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" value="author" />
+            <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" />
         </div>
         <div class="form-group">
             <label for="title">Titre</label><br>

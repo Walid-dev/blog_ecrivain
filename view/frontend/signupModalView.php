@@ -32,7 +32,7 @@
                                         <hr class="col-1">
                                     </div>
                                     <div class="form-group mb-0">
-                                        <input id="email2" class="form-control form-control mr-sm-2 mt-2" type="text" name="mailuid" placeholder="Username/E-mail..">
+                                        <input id="email2" type="email" class="form-control form-control mr-sm-2 mt-2" name="mailuid" placeholder="Username/E-mail..">
                                         <span class="ml-2" id='result2'></span>
                                     </div>
                                     <div class="form-group">

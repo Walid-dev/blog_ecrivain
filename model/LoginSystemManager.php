@@ -13,19 +13,14 @@ class LoginSystemManager
 
         if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
             header("Location: index.php?error=emptyfields&uid=" . $username . "&mail=" . $email);
-            exit();
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
             header("Location: index.php?error=invalidmailuid=");
-            exit();
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
             header("Location: index.php?error=invalidmail&uid=" . $username);
-            exit();
         } elseif (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
             header("Location: index.php?error=invaliduid&mail=" . $email);
-            exit();
         } elseif ($password !== $passwordRepeat) {
             header("Location: index.php?error=passwordcheck&uid=" . $username . "&mail=" . $email);
-            exit();
         } else {
 
             $request = $db->prepare("SELECT emailUsers FROM users WHERE emailUsers=?");
