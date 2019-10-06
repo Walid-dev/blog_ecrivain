@@ -46,6 +46,7 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
+
     require('view/frontend/postView.php');
 }
 
@@ -124,4 +125,13 @@ function updateArticle($id, $author, $title, $content)
     $_SESSION['msg_type'] = "info";
 
     header('Location: index.php');
+}
+
+
+function test($id, $variable, $commentStatus)
+{
+    $commentManager = new CommentManager();
+    $commentManager->test($id, $variable, $commentStatus);
+
+    echo "->id: " . $id . "->variable: " . $variable . "->commentSTatus: " . $commentStatus;
 }

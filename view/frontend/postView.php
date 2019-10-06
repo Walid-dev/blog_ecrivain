@@ -34,7 +34,15 @@
                 <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> :</p>
                 <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                 <form action="index.php" method="post">
-                    <input class="btn btn-sm btn-warning" type="submit" name="report_button" value="Click..">
+                    <input type="hidden" value="<?= $comment['id']  ?>" name="commentId" />
+                    <input type="hidden" value="1" name="commentStatus" />
+                    <input type="hidden" value="<?php if ($comment['comment_status'] == 0) {
+                                                    echo $comment['report'] + 1;
+                                                } else {
+                                                    echo "Commentaire déjà signalé";
+                                                }
+                                                ?>" name="report" />
+                    <input class="btn btn-sm btn-warning" type="submit" name="test" value="Signaler">
                 </form>
             <?php
         }

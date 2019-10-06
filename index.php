@@ -7,6 +7,8 @@ try { // On essaie de faire des choses
         login();
     } elseif (isset($_POST['signup-submit'])) {
         addUser();
+    } elseif (isset($_POST['test'])) {
+        test($_POST['commentId'], $_POST['report'], $_POST['commentStatus']);
     } elseif (isset($_POST['logout-submit'])) {
         logout();
     } elseif (isset($_GET['action'])) {
