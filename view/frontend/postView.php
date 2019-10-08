@@ -26,24 +26,25 @@
 
     <div class="row flex-column col-md-10 pl-0">
 
-        <div class="comments_box mt-5 mb-3 p-2">
+        <div class="comments_box mt-5 mb-3 p-3">
             <h4 class="text-center">Commentaires</h4>
             <?php
             while ($comment = $comments->fetch()) {
                 ?>
-                <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> :</p>
+                <p><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?> :</p>
                 <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                 <form action="index.php" method="post">
-                    <input type="hidden" value="<?= $comment['id']  ?>" name="commentId" />
+                    <input type="hidden" value="<?= $comment['id'] ?>" name="commentId" />
                     <input type="hidden" value="1" name="commentStatus" />
                     <input type="hidden" value="<?php if ($comment['comment_status'] == 0) {
                                                     echo $comment['report'] + 1;
                                                 } else {
-                                                    echo "Commentaire déjà signalé";
+                                                    $comment['report'];
                                                 }
                                                 ?>" name="report" />
-                    <input class="btn btn-sm btn-warning" type="submit" name="test" value="Signaler">
+                    <input class="btn btn-sm btn-warning mb-2" type="submit" name="test" value="Signaler <?= $comment['report'] ?>">
                 </form>
+                <hr>
             <?php
         }
         ?>

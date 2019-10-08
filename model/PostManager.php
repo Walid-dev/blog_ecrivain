@@ -4,10 +4,63 @@ class PostManager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 10');
+
+        $req = $db->query('SELECT id FROM posts');
+        $articlesCount = $req->rowCount($db);
+
+        $perPage = 4;
+        $cPage = 1;
+        $nbPages = ceil($articlesCount / $perPage);
+
+        if (isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p'] <= $nbPages) {
+            $cPage = $_GET['p'];
+        } else {
+            $cPage = 1;
+        }
+
+        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+
+
 
         return $req;
     }
+
+    public function display()
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->query('SELECT id FROM posts');
+        $articlesCount = $req->rowCount($db);
+
+        $perPage = 4;
+        $cPage = 1;
+        $nbPages = ceil($articlesCount / $perPage);
+
+        if (isset($_GET['p']) && $_GET['p'] > 0 && $_GET['p'] <= $nbPages) {
+            $cPage = $_GET['p'];
+        } else {
+            $cPage = 1;
+        }
+
+        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+
+
+
+        for ($i = 1; $i <= $nbPages; $i++) {
+            if ($i == $cPage) {
+                echo "<span>$i</span>";
+            } else {
+                echo " <a href=\"index.php?p=$i#sectionArticles\">$i</a></a>";
+            }
+            // echo '<script type="text/javascript">window.onload = function() { document.getElementById("content").innerHTML = "' . $pagination . '"; }</script>';
+        }
+
+
+
+
+        return $req;
+    }
+
 
     public function getPost($postId)
     {

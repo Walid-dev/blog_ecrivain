@@ -518,3 +518,32 @@ a {
 .nav-tabs .nav-link.active {
     background: #66fcf16b;
 }
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#content a {
+    padding: 2px 6px;
+    background: #66fcf1;
+    margin: 0px 4px;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+#content a:hover {
+    background: #fff;
+    transition: 0.25s linear;
+    -webkit-transition: 0.25s linear;
+    -moz-transition: 0.25s linear;
+    -ms-transition: 0.25s linear;
+    -o-transition: 0.25s linear;
+}
+
+#content span {
+    padding: 2px 4px;
+    margin: 0px 4px;
+}

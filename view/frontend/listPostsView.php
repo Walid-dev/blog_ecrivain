@@ -11,11 +11,10 @@
 
 <?php
 $chapters = 0;
-
 while ($data = $posts->fetch()) {
     $chapters++;
     ?>
-    <section class="articles_section container-fluid">
+    <section id="sectionArticles" class="articles_section container-fluid">
         <div class="article_content col-md-10 col-12">
             <h2 class="mb-3">Chapitre: <?php
                                         echo $chapters  ?>
@@ -48,6 +47,7 @@ while ($data = $posts->fetch()) {
         </div>
     </section>
     </div>
+
     <hr class="articles_hr mb-0">
 
 <?php
@@ -56,7 +56,7 @@ while ($data = $posts->fetch()) {
 
 $posts->closeCursor();
 ?>
-
+<div id="content" class="text-black text-center"><?php display(); ?></div>
 
 <?php $content = ob_get_clean(); ?>
 
