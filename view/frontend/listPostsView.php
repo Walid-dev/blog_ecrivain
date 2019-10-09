@@ -56,7 +56,7 @@ while ($data = $posts->fetch()) {
 
 $posts->closeCursor();
 ?>
-<div id="content" class="text-black text-center"><?php display(); ?></div>
+<div id="content" class="text-black text-center"><?php pagination(); ?></div>
 
 <?php $content = ob_get_clean(); ?>
 

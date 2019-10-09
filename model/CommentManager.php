@@ -6,7 +6,6 @@ class CommentManager
     {
         $db = $this->dbConnect();
         $req = $db->query('SELECT id, post_id, author, comment, report, comment_status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY report DESC LIMIT 0, 50');
-
         return $req;
     }
 
@@ -35,7 +34,7 @@ class CommentManager
     }
 
 
-    public function test($id, $variable, $commentStatus)
+    public function signal($id, $variable, $commentStatus)
     {
         $db = $this->dbConnect();
         $db->query("UPDATE comments SET report='$variable', comment_status='$commentStatus' WHERE id='$id'");

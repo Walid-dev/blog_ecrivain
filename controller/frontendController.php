@@ -39,10 +39,10 @@ function listPosts()
     require('view/frontend/listPostsView.php');
 }
 
-function display()
+function pagination()
 {
     $postManager = new PostManager();
-    $postManager->display();
+    $postManager->pagination();
 }
 
 function post()
@@ -61,6 +61,8 @@ function listComments()
 {
     $commentManager = new CommentManager();
     $comments = $commentManager->listComments();
+
+
 
     require('view/frontend/listCommentsView.php');
 }
@@ -135,10 +137,10 @@ function updateArticle($id, $author, $title, $content)
 }
 
 
-function test($id, $variable, $commentStatus)
+function signal($id, $variable, $commentStatus)
 {
     $commentManager = new CommentManager();
-    $commentManager->test($id, $variable, $commentStatus);
+    $commentManager->signal($id, $variable, $commentStatus);
 
     echo "->id: " . $id . "->variable: " . $variable . "->commentSTatus: " . $commentStatus;
 }

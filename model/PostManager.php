@@ -25,7 +25,7 @@ class PostManager
         return $req;
     }
 
-    public function display()
+    public function pagination()
     {
         $db = $this->dbConnect();
 
