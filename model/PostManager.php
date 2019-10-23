@@ -50,7 +50,7 @@ class PostManager extends Manager
             if ($i == $cPage) {
                 echo "<span>$i</span>";
             } else {
-                echo " <a href=\"index.php?p=$i#sectionArticles\">$i</a></a>";
+                echo " <a href=\"index.php?p=$i#sectionArticles\">$i</a>";
             }
             // echo '<script type="text/javascript">window.onload = function() { document.getElementById("content").innerHTML = "' . $pagination . '"; }</script>';
         }

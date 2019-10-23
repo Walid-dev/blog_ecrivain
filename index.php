@@ -78,5 +78,6 @@ try { // On essaie de faire des choses
     }
 } catch (Exception $e) { // S'il y a eu une erreur, alors...
     //  require('view/frontend/errorView.php');
-    echo 'Erreur : ' . $e->getMessage();
+    $_SESSION['message'] = $e->getMessage();
+    $_SESSION['msg_type'] = "warning";
 }

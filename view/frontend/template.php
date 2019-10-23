@@ -1,6 +1,5 @@
-<?php  ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -27,8 +26,6 @@
 <body>
 
     <?php require "view/frontend/headerView.php" ?>
-
-    <body>
         <div class="main_wrapper">
             <?php if (isset($_SESSION['message'])) : ?>
                 <div id="infoText" class="alert alert-<?= $_SESSION['msg_type'] ?>">
@@ -46,7 +43,7 @@
         <?php require "view/frontend/footerView.php" ?>
         <script src="public/js/app.js"></script>
         <script src="public/js/scroll-out.js"></script>
-        <script type="text/javascript">
+        <script>
             ScrollOut({
                 targets: 'h2,h3,p,a,blockquote,.masthead_title,.alert'
             })

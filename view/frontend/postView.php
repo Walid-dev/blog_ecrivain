@@ -46,7 +46,7 @@
                                                         $comment['report'];
                                                     }
                                                     ?>" name="report" />
-                        <input class="btn btn-sm btn-warning mb-2 ml-5" type="submit" name="signal" value="Signaler <?= $comment['report'] ?>">
+                        <input id="signalBtn" class="btn btn-sm btn-warning mb-2 ml-5" type="submit" name="signal" value="Signaler <?= $comment['report'] ?>">
                     </div>
                 </form>
                 <hr>
