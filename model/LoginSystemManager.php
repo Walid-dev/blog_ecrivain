@@ -1,10 +1,10 @@
 <?php
 
-class LoginSystemManager
+class LoginSystemManager extends Manager
 {
     public function addUser()
     {
-        $db = $this->dbConnect();
+        $db = Manager::dbConnect();
         $username = $_POST['uid'];
         $email = $_POST['mail'];
         $password = $_POST['pwd'];
@@ -53,7 +53,7 @@ class LoginSystemManager
 
     public function login()
     {
-        $db = $this->dbConnect();
+        $db = Manager::dbConnect();
 
         $mailuid = $_POST['mailuid'];
         $password = $_POST['pwd'];
@@ -89,13 +89,5 @@ class LoginSystemManager
         session_destroy();
 
         header("Location:index.php");
-    }
-
-
-
-    private function dbConnect()
-    {
-        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
-        return $db;
     }
 }

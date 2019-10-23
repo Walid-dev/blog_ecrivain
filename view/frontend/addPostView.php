@@ -2,10 +2,10 @@
 <div id="addPostContainer" class="container">
     <h1 class="text-center pt-5">Ajouter un article</h1>
     <hr class="mt-2 mb-2">
-    <p><a class="up btn return_btn mb-2 mt-2" href="index.php">Retour à la liste des chapitre</a></p>
+    <p><a class="up btn return_btn mb-2 mt-2" href="index.php#sectionArticles">Retour à la liste des chapitres</a></p>
     <h2>Ajouter un article</h2>
 
-    <form action="index.php?action=addArticle" method="post">
+    <form action="" method="post">
         <div class="form-group">
             <label for="author">Auteur</label><br>
             <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" />

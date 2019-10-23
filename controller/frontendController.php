@@ -2,6 +2,7 @@
 
 // Chargement des classes
 
+require_once('model/Manager.php');
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/loginSystemManager.php');
@@ -18,9 +19,6 @@ function login()
     $loginSystemManager = new LoginSystemManager();
     $addUser = $loginSystemManager->login();
 }
-
-
-
 
 function logout()
 {
@@ -74,6 +72,9 @@ function deleteComment($id)
     $commentManager->listComments();
     $commentManager->deleteComment($id);
 
+    $_SESSION['message'] = "Le commentaire à été supprimé";
+    $_SESSION['msg_type'] = "danger";
+
     header('Location: index.php?action=listComments#tableCommentsTitle');
 }
 
@@ -114,7 +115,7 @@ function deleteArticle($id)
     $_SESSION['message'] = "L'article a été supprimé.";
     $_SESSION['msg_type'] = "danger";
 
-    header('Location: index.php');
+    header('Location: index.php#sectionArticles');
 }
 
 function editArticle()
@@ -133,7 +134,7 @@ function updateArticle($id, $author, $title, $content)
     $_SESSION['message'] = "L'article a été mis à jour.";
     $_SESSION['msg_type'] = "info";
 
-    header('Location: index.php');
+    header('Location: index.php#sectionArticles');
 }
 
 
@@ -142,5 +143,20 @@ function signal($id, $variable, $commentStatus)
     $commentManager = new CommentManager();
     $commentManager->signal($id, $variable, $commentStatus);
 
-    echo "->id: " . $id . "->variable: " . $variable . "->commentSTatus: " . $commentStatus;
+    $_SESSION['message'] = "L'article a été signalé.";
+    $_SESSION['msg_type'] = "warning";
+
+    header('Location: index.php?action=post&id=' . $_GET['id']);
+}
+
+
+function validateComment($id)
+{
+    $commentManager = new CommentManager();
+    $commentManager->validateComment($id);
+
+    header('Location: index.php?action=listComments#tableCommentsTitle');
+
+    $_SESSION['message'] = "L'e commentaire à été validé";
+    $_SESSION['msg_type'] = "info";
 }

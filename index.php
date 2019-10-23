@@ -58,6 +58,8 @@ try { // On essaie de faire des choses
                     listComments();
                 } elseif ($_GET['action'] == 'deleteComment') {
                     deleteComment($_GET['id']);
+                } elseif ($_GET['action'] == 'validateComment') {
+                    validateComment($_GET['id']);
                 }
             } else {
                 $_SESSION['message'] = "Page reservée aux administrateurs";

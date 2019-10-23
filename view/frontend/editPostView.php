@@ -2,7 +2,7 @@
 <div id="editPostContainer" class="container">
     <h1 class="text-center pt-5"><?= "Modifier " . '"' . $post['title'] . '"' ?></h1>
     <hr class="mt-2 mb-2">
-    <p><a class="up btn return_btn" href="index.php">Retour à la liste des billets</a></p>
+    <p><a class="up btn return_btn" href="index.php#sectionArticles">Retour à la liste des billets</a></p>
     <form action="index.php?action=updateArticle&amp;id=<?= $post['id'] ?>" method="post">
         <div class="form-group">
             <label for="author">Auteur</label><br>

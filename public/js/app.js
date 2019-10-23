@@ -50,4 +50,7 @@ function validateLoginAccount() {
         return false;
     }
 }
-$("#validate2").on("click", validateLoginAccount);
+
+$("#infoText")
+    .delay(1000)
+    .fadeOut(2000);

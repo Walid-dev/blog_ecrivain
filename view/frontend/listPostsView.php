@@ -1,14 +1,5 @@
 <?php ob_start(); ?>
 
-<?php if (isset($_SESSION['message'])) : ?>
-
-    <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
-        <?php echo $_SESSION['message'];
-        unset($_SESSION['message']);
-        ?>
-    </div>
-<?php endif ?>
-
 <?php
 $chapters = 0;
 while ($data = $posts->fetch()) {
@@ -16,10 +7,8 @@ while ($data = $posts->fetch()) {
     ?>
     <section id="sectionArticles" class="articles_section container-fluid">
         <div class="article_content col-md-10 col-12">
-            <h2 class="mb-3">Chapitre: <?php
-                                        echo $chapters  ?>
-            </h2>
-            <h3 class="mb-3"><?= $data['title'] ?></h3>
+            <h2 class="mb-3"><?= $data['title'] ?></h2>
+            <h3 class="mb-3"><?= $data['author'] ?></h3>
             <p class="mb-3">
                 <?php
                 $textShortened = $data['content'];

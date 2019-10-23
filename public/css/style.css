@@ -280,16 +280,6 @@ blockquote[data-scroll="in"] {
     -o-transform: translateX(0px);
 }
 
-.alert[data-scroll="in"] {
-    transition-delay: 4s;
-    transition: 4s linear;
-    opacity: 0;
-    -webkit-transition: 4s linear;
-    -moz-transition: 4s linear;
-    -ms-transition: 4s linear;
-    -o-transition: 4s linear;
-}
-
 .articles_hr {
     border: 1px solid #66fcf1;
     padding-top: 1px;
@@ -546,4 +536,12 @@ a {
 #content span {
     padding: 2px 4px;
     margin: 0px 4px;
+}
+
+#infoText {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
 }

@@ -1,17 +1,8 @@
 <?php ob_start(); ?>
 
-<?php if (isset($_SESSION['message'])) : ?>
-
-    <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
-        <?php echo $_SESSION['message'];
-        unset($_SESSION['message']);
-        ?>
-    </div>
-<?php endif ?>
-
 <div class="container">
     <div class="row">
-        <a id="tableCommentsTitle" class="up btn return_btn mb-5 mt-5" href="index.php">Retour à la liste des chapitre</a>
+        <a id="tableCommentsTitle" class="up btn return_btn mb-5 mt-5" href="index.php#sectionArticles">Retour à la liste des chapitres</a>
     </div>
     <h2 class="mb-5 mt-2 text-center">Tableau des commentaires</h2>
     <hr>

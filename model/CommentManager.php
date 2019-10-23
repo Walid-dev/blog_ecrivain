@@ -1,23 +1,23 @@
 <?php
-class CommentManager
+class CommentManager extends Manager
 {
 
     public function listComments()
     {
-        $db = $this->dbConnect();
+        $db = Manager::dbConnect();
         $req = $db->query('SELECT id, post_id, author, comment, report, comment_status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY report DESC LIMIT 0, 50');
         return $req;
     }
 
     public function deleteComment($id)
     {
-        $db = $this->dbConnect();
+        $db = Manager::dbConnect();
         $db->query("DELETE FROM comments WHERE id=$id");
     }
 
     public function getComments($postId)
     {
-        $db = $this->dbConnect();
+        $db = Manager::dbConnect();
         $comments = $db->prepare('SELECT id, author, comment, report, comment_status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($postId));
 
@@ -26,7 +26,7 @@ class CommentManager
 
     public function postComment($postId, $author, $comment)
     {
-        $db = $this->dbConnect();
+        $db = Manager::dbConnect();
         $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, report, comment_status, comment_date) VALUES(?, ?, ?, 0, 0, NOW())');
         $affectedLines = $comments->execute(array($postId, $author, $comment));
 
@@ -36,16 +36,13 @@ class CommentManager
 
     public function signal($id, $variable, $commentStatus)
     {
-        $db = $this->dbConnect();
+        $db = Manager::dbConnect();
         $db->query("UPDATE comments SET report='$variable', comment_status='$commentStatus' WHERE id='$id'");
     }
 
-
-
-
-    private function dbConnect()
+    public function validateComment($id)
     {
-        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
-        return $db;
+        $db = Manager::dbConnect();
+        $db->query("UPDATE comments SET comment_status=0, report=0 WHERE id='$id'");
     }
 }
