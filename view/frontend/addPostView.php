@@ -8,14 +8,14 @@
     <form method="post">
         <div class="form-group">
             <label for="author">Auteur</label><br>
-            <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" required/>
+            <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" required oninvalid="this.setCustomValidity('Remplir le champ svp.')" oninput="setCustomValidity('')" />
             <div class="invalid-feedback">
-          Remplir ce champs svp.
-        </div>
+                Remplir ce champs svp.
+            </div>
         </div>
         <div class="form-group">
             <label for="title">Titre</label><br>
-            <input class="form-control" placeholder="Titre" id="title" name="title" required/>
+            <input class="form-control" placeholder="Titre" id="title" name="title" required oninvalid="this.setCustomValidity('Remplir le champ svp')" oninput="setCustomValidity('')" />
         </div>
         <div class="form-group">
             <label for="title">Texte</label><br />

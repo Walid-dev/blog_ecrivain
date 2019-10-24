@@ -103,11 +103,7 @@ function postArticle($author, $title, $content)
     $postManager = new PostManager();
     $postManager->postArticle($author, $title, $content);
 
-    $_SESSION['message'] = "L'article a été ajouté.";
-    $_SESSION['msg_type'] = "success";
-
-    header('Location: index.php#sectionArticles');
-
+    echo '<div class="alert alert-success add_article_msg">Article ajouté</div>';
 }
 
 function deleteArticle($id)
@@ -149,7 +145,7 @@ function signal($id, $variable, $commentStatus)
     $_SESSION['message'] = "L'article a été signalé.";
     $_SESSION['msg_type'] = "warning";
 
-    header('Location: index.php?action=post&id=' . $_GET['id']);
+    header('Location: index.php?action=post&id=' . $_GET['id'] . '#commentBox');
 }
 
 

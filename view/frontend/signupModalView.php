@@ -32,11 +32,11 @@
                                         <hr class="col-1">
                                     </div>
                                     <div class="form-group mb-0">
-                                        <input id="email2" type="email" class="form-control form-control mr-sm-2 mt-2" name="mailuid" placeholder="Username/E-mail..">
+                                        <input id="email2" type="email" class="form-control form-control mr-sm-2 mt-2" name="mailuid" placeholder="Username/E-mail.." required>
                                         <span class="ml-2" id='result2'></span>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password">
+                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password" required oninvalid="this.setCustomValidity('Mot de passe manquant')">
                                     </div>
                                     <button id="validate2" class="btn up modal_btn mt-3" type="submit" name="login-submit">Connection</button>
                                 </form>

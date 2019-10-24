@@ -36,15 +36,13 @@ try { // On essaie de faire des choses
         } elseif (isset($_SESSION['userId'])) {
 
             if ($_SESSION['usertype'] == 2) {
-
                 if ($_GET['action'] == 'addArticle') {
                     addArticle();
                     if (isset($_POST['save'])) {
                         if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
                             postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content']);
                         } else {
-                            header("Refresh:0");
-                            throw new Exception('Tous les champs ne sont pas remplis !');
+                            echo '<div class="alert alert-warning add_article_msg">Tous les champs ne sont pas remplis !</div>';
                         }
                     }
                 } elseif ($_GET['action'] == 'delete') {

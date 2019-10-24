@@ -48,11 +48,9 @@ body {
     align-items: center;
 }
 
-.article_content{
+.article_content {
     min-height: 72.5vh;
     padding: 100px 0px;
-
-
 }
 
 .articles_section .article_content h2 {
@@ -74,8 +72,7 @@ body {
     -o-transform: scaleX(0);
 }
 
-#paginationBox{
-   
+#paginationBox {
 }
 
 .articles_section .article_content h2[data-scroll="in"] {
@@ -295,9 +292,8 @@ blockquote[data-scroll="in"] {
     background: #c5c6c7;
     width: 100%;
     margin-left: auto;
-    opacity: .1;
+    opacity: 0.1;
     padding: 0;
-    
 }
 
 .tox-notifications-container {
@@ -352,7 +348,7 @@ blockquote[data-scroll="in"] {
     font-weight: lighter;
 }
 
-#signalBtn{
+#signalBtn {
     background: transparent;
     color: #fff;
     font-weight: 300;
@@ -447,14 +443,12 @@ a {
 }
 
 .modal {
-    background: #151515a6;
+    background: #151515cc;
 }
 
 .modal_form .form-control {
     font-size: 15px;
     font-weight: lighter;
-    background: #66fcf130;
-    border: none;
 }
 
 .modal .modal_btn {
@@ -473,15 +467,17 @@ a {
     background-attachment: scroll;
     background-size: cover;
     border-radius: 10px;
-    border: 1px solid #fff;
+    border: 1px solid #3ff2fb57;
+    box-shadow: rgb(255, 255, 255) 0px 0px 10px, #46cff9 0px 0px 20px;
     min-height: 75vh;
     overflow: hidden;
 }
 
 #modalLRForm button {
-    background: #66fcf16b;
+    background: #54f9ed17;
     font-size: 15px;
     font-weight: lighter;
+    border: 2px solid #f9f9f9bf;
 }
 
 .deleteModalContent {
@@ -526,7 +522,8 @@ a {
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    background: #66fcf16b;
+    background: #54f9ed17;
+    border-radius: 3px 1px 1px 1px;
 }
 
 #content {
@@ -558,7 +555,8 @@ a {
     margin: 0px 4px;
 }
 
-#infoText {
+#infoText,
+.add_article_msg {
     position: fixed;
     top: 0;
     z-index: 10;
