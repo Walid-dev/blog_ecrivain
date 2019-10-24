@@ -1,23 +1,20 @@
 <?php ob_start(); ?>
 <section id="sectionArticles" class="articles_section container-fluid">
 
-<?php
-//<section id="sectionArticles" class="articles_section container-fluid">
-  
-while ($data = $posts->fetch()) {
-    ?>
-
+    <?php
+    while ($data = $posts->fetch()) {
+        ?>
         <div class="article_content col-md-10 col-12">
             <h2 class="mb-3"><?= $data['title'] ?></h2>
             <h3 class="mb-3"><?= $data['author'] ?></h3>
             <p class="mb-3">
                 <?php
+                // Shortening the article text
                 $textShortened = $data['content'];
-                if (strlen($textShortened) > 800) // if you want...
-                    {
-                        $maxLength = 799;
-                        $textShortened = substr($textShortened, 0, $maxLength);
-                    }
+                if (strlen($textShortened) > 800) {
+                    $maxLength = 799;
+                    $textShortened = substr($textShortened, 0, $maxLength);
+                }
                 echo  $textShortened . '...';
                 ?>
             </p>
@@ -27,6 +24,7 @@ while ($data = $posts->fetch()) {
             <div class="articles_btn_box mt-4">
                 <a href="index.php?action=post&amp;id=<?= $data['id'] . "#postContainer" ?>" class="btn admin_btn mr-1 mr-1">Lire..</a>
                 <?php
+                // Check if the user is an Admin to display admin buttons
                 if (isset($_SESSION['usertype'])) {
                     if (($_SESSION['usertype'] == 2)) {
                         require('view/frontend/adminButtonsView.php');
@@ -34,14 +32,14 @@ while ($data = $posts->fetch()) {
                 }
                 ?>
             </div>
-    </div>
-    <hr class="articles_hr mb-0">
+        </div>
+        <hr class="articles_hr mb-0">
 
-<?php
+    <?php
 }
 $posts->closeCursor();
 ?>
-    </section>
+</section>
 <div id="content" class="text-black text-center"><?php pagination(); ?></div>
 <?php $content = ob_get_clean(); ?>
 

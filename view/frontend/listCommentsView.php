@@ -18,31 +18,23 @@
                 </tr>
             </thead>
             <?php
-
-
             while ($data = $comments->fetch()) {
                 if ($data['comment_status'] == 1) {
+                    // Check the comments status and display the signaled ones
                     require('view/frontend/commentsTableRowView.php');
                 }
                 ?>
-
-
-
-
 
             <?php
 
         }
 
-
         $comments->closeCursor();
         ?>
-
 
         </table>
     </div>
 </div>
-
 
 <?php $content = ob_get_clean(); ?>
 

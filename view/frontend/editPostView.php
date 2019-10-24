@@ -6,12 +6,12 @@
     <form action="index.php?action=updateArticle&amp;id=<?= $post['id'] ?>" method="post">
         <div class="form-group">
             <label for="author">Auteur</label><br>
-            <input type="text" class="form-control" id="author" name="author" value="<?= $post['author'] ?>" />
+            <input type="text" class="form-control" id="author" name="author" value="<?= $post['author'] ?>" required />
         </div>
 
         <div class="form-group">
             <label for="title">Titre</label>
-            <input id="title" class="form-control" name="title" value="<?= $post['title'] ?>" />
+            <input id="title" class="form-control" name="title" value="<?= $post['title'] ?>" required />
         </div>
 
         <div class="form-group">
@@ -20,12 +20,10 @@
         </div>
 
         <div id="buttonBox" class="d-flex mt-4">
-            <button class="btn btn-info mb-5" type="submit" name="update">Update</button>
+            <button class="btn btn-info mb-5" type="submit" name="update">Sauvegarder</button>
         </div>
     </form>
 </div>
-
-
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

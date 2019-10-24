@@ -40,9 +40,12 @@
                         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                         <input type="hidden" value="<?= $comment['id'] ?>" name="commentId" />
                         <input type="hidden" value="1" name="commentStatus" />
-                        <input type="hidden" value="<?php if ($comment['comment_status'] == 0) {
-                                                        echo $comment['report'] + 1;
-                                                    } else {
+
+                        <input type="hidden" value="<?php if ($comment['comment_status'] == 0)
+                                                        // Increase the variable report Onclick to signal the comment
+                                                        {
+                                                            echo $comment['report'] + 1;
+                                                        } else {
                                                         $comment['report'];
                                                     }
                                                     ?>" name="report" />
@@ -59,6 +62,7 @@
 
         if (isset($_SESSION['usertype'])) {
             if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2) {
+                // Check if the user has an account to be allowed to add a comment
                 require("view/frontend/formCommentView.php");
             } else {
                 echo "Se connecter ou créer un compte pour ajouter un commentaire";
