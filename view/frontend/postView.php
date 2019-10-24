@@ -37,7 +37,7 @@
                 <form action="" method="post">
                     <p><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?> :</p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                        <p class="comment_text"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                         <input type="hidden" value="<?= $comment['id'] ?>" name="commentId" />
                         <input type="hidden" value="1" name="commentStatus" />
 

@@ -6,12 +6,12 @@
     <form action="index.php?action=updateArticle&amp;id=<?= $post['id'] ?>" method="post">
         <div class="form-group">
             <label for="author">Auteur</label><br>
-            <input type="text" class="form-control" id="author" name="author" value="<?= $post['author'] ?>" required />
+            <input type="text" class="form-control" id="author" name="author" value="<?= $post['author'] ?>" />
         </div>
 
         <div class="form-group">
             <label for="title">Titre</label>
-            <input id="title" class="form-control" name="title" value="<?= $post['title'] ?>" required />
+            <input id="title" class="form-control" name="title" value="<?= $post['title'] ?>" />
         </div>
 
         <div class="form-group">

@@ -508,6 +508,12 @@ a {
     border-radius: 4px;
 }
 
+.comment_text {
+    font-size: 15px;
+    color: #5ed3f7;
+    letter-spacing: 1px;
+}
+
 .footer {
     height: 8vh;
     display: flex;
