@@ -5,14 +5,17 @@
     <p><a class="up btn return_btn mb-2 mt-2" href="index.php#sectionArticles">Retour à la liste des chapitres</a></p>
     <h2>Ajouter un article</h2>
 
-    <form action="" method="post">
+    <form method="post">
         <div class="form-group">
             <label for="author">Auteur</label><br>
-            <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" />
+            <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" required/>
+            <div class="invalid-feedback">
+          Remplir ce champs svp.
+        </div>
         </div>
         <div class="form-group">
             <label for="title">Titre</label><br>
-            <input class="form-control" placeholder="Titre" id="title" name="title" />
+            <input class="form-control" placeholder="Titre" id="title" name="title" required/>
         </div>
         <div class="form-group">
             <label for="title">Texte</label><br />

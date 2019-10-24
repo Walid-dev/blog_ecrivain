@@ -59,7 +59,7 @@
             $_SESSION['msg_type'] = "danger";
         }
     } elseif (isset($_GET['login'])) {
-        echo '<div class="alert alert-success">Vous etes maintenant connécté.</div>';
+       // echo '<div class="alert alert-success">Vous etes maintenant connécté.</div>';
         $_SESSION['message'] = "Vous etes maintenant connécté.";
         $_SESSION['msg_type'] = "success";
     }

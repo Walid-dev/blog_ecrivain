@@ -105,6 +105,9 @@ function postArticle($author, $title, $content)
 
     $_SESSION['message'] = "L'article a été ajouté.";
     $_SESSION['msg_type'] = "success";
+
+    header('Location: index.php#sectionArticles');
+
 }
 
 function deleteArticle($id)

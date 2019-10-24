@@ -43,6 +43,7 @@ try { // On essaie de faire des choses
                         if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
                             postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content']);
                         } else {
+                            header("Refresh:0");
                             throw new Exception('Tous les champs ne sont pas remplis !');
                         }
                     }

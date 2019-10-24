@@ -74,6 +74,10 @@ body {
     -o-transform: scaleX(0);
 }
 
+#paginationBox{
+   
+}
+
 .articles_section .article_content h2[data-scroll="in"] {
     transform: scaleX(1);
     -webkit-transform: scaleX(1);
@@ -290,7 +294,9 @@ blockquote[data-scroll="in"] {
     border: 1px solid #66fcf1;
     background: #c5c6c7;
     width: 100%;
+    margin-left: auto;
     opacity: .1;
+    padding: 0;
     
 }
 

@@ -1,9 +1,12 @@
 <?php ob_start(); ?>
-
 <section id="sectionArticles" class="articles_section container-fluid">
+
 <?php
+//<section id="sectionArticles" class="articles_section container-fluid">
+  
 while ($data = $posts->fetch()) {
     ?>
+
         <div class="article_content col-md-10 col-12">
             <h2 class="mb-3"><?= $data['title'] ?></h2>
             <h3 class="mb-3"><?= $data['author'] ?></h3>
@@ -31,18 +34,15 @@ while ($data = $posts->fetch()) {
                 }
                 ?>
             </div>
-        </div>
-
+    </div>
     <hr class="articles_hr mb-0">
 
 <?php
 }
-
-
 $posts->closeCursor();
 ?>
+    </section>
 <div id="content" class="text-black text-center"><?php pagination(); ?></div>
-</section>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
