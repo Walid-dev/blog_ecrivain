@@ -3,12 +3,12 @@
 <?php ob_start(); ?>
 <div id="postContainer" class="container" style="width: 90%;">
     <h1 class="text-center pt-5"><?= $post['title'] ?></h1>
-    <hr class="mt-2 mb-2">
+    <hr class="hr_post" class="mt-2 mb-2">
     <div class="row">
         <a class="up btn return_btn mb-5 mt-5" href="index.php#sectionArticles">Retour à la liste des chapitres</a>
     </div>
     <hr class="mt-2 mb-2">
-    <div class="row">
+    <div class="row article_text">
         <div class="">
             <h3>
                 <?= htmlspecialchars($post['title']) ?>
@@ -40,7 +40,6 @@
                         <p class="comment_text"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                         <input type="hidden" value="<?= $comment['id'] ?>" name="commentId" />
                         <input type="hidden" value="1" name="commentStatus" />
-
                         <input type="hidden" value="<?php if ($comment['comment_status'] == 0)
                                                         // Increase the variable report Onclick to signal the comment
                                                         {
@@ -49,7 +48,7 @@
                                                         $comment['report'];
                                                     }
                                                     ?>" name="report" />
-                        <input id="signalBtn" class="btn btn-sm btn-warning mb-2 ml-5" type="submit" name="signal" value="Signaler <?= $comment['report'] ?>">
+                        <input class="signal_btn btn btn-sm btn-warning mb-2 ml-5" type="submit" name="signal" value="Signaler <?= $comment['report'] ?>">
                     </div>
                 </form>
                 <hr>

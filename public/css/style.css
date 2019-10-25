@@ -53,6 +53,22 @@ body {
     padding: 100px 0px;
 }
 
+.article_text p {
+    font-size: 1.12rem;
+    color: #bfbfbf;
+    letter-spacing: 1px;
+}
+
+.hr_post {
+    background: white;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.article_text h3 {
+    color: #79f2f2;
+}
+
 .articles_section .article_content h2 {
     position: relative;
     margin: 0;
@@ -70,9 +86,6 @@ body {
     -moz-transform: scaleX(0);
     -ms-transform: scaleX(0);
     -o-transform: scaleX(0);
-}
-
-#paginationBox {
 }
 
 .articles_section .article_content h2[data-scroll="in"] {
@@ -348,11 +361,19 @@ blockquote[data-scroll="in"] {
     font-weight: lighter;
 }
 
-#signalBtn {
+.signal_btn {
     background: transparent;
     color: #fff;
     font-weight: 300;
-    border-color: #f7d46c6b;
+    border-color: #fbc523de;
+}
+
+.signal_btn:hover {
+    transition: 0.25s linear;
+    -webkit-transition: 0.25s linear;
+    -moz-transition: 0.25s linear;
+    -ms-transition: 0.25s linear;
+    -o-transition: 0.25s linear;
 }
 
 .up:hover,
@@ -521,6 +542,15 @@ a {
     align-items: center;
 }
 
+#listCommentsBox {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
 #commentsTable {
     background: transparent;
     color: #fff;
@@ -568,4 +598,11 @@ a {
     z-index: 10;
     width: 100%;
     text-align: center;
+}
+
+@media (max-width: 1000px) {
+    table .btn {
+        padding: 4px;
+        margin-left: 0 !important;
+    }
 }
