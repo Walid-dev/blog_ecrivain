@@ -36,7 +36,7 @@
                                         <span class="ml-2" id='result2'></span>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password" required oninvalid="this.setCustomValidity('Mot de passe manquant')">
+                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd" placeholder="Password">
                                     </div>
                                     <button id="validate2" class="btn up modal_btn mt-3" type="submit" name="login-submit">Connection</button>
                                 </form>

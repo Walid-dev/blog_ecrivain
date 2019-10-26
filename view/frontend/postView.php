@@ -7,13 +7,11 @@
     <div class="row">
         <a class="up btn return_btn mb-5 mt-5" href="index.php#sectionArticles">Retour à la liste des chapitres</a>
     </div>
-    <hr class="mt-2 mb-2">
     <div class="row article_text">
         <div class="">
             <h3>
                 <?= htmlspecialchars($post['title']) ?>
             </h3>
-
             <p>
                 <?= nl2br($post['content']) ?>
             </p>
