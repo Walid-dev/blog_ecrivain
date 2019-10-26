@@ -20,8 +20,6 @@ class PostManager extends Manager
 
         $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
 
-
-
         return $req;
     }
 
@@ -29,7 +27,8 @@ class PostManager extends Manager
     {
         $db = Manager::dbConnect();
 
-        $req = $db->query('SELECT id FROM posts');
+        $req = $db->prepare('SELECT id FROM posts');
+        $req->execute(array('id'));
         $articlesCount = $req->rowCount($db);
 
         $perPage = 4;
@@ -45,7 +44,6 @@ class PostManager extends Manager
         $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
 
 
-
         for ($i = 1; $i <= $nbPages; $i++) {
             if ($i == $cPage) {
                 echo "<span>$i</span>";
@@ -54,9 +52,6 @@ class PostManager extends Manager
             }
             // echo '<script type="text/javascript">window.onload = function() { document.getElementById("content").innerHTML = "' . $pagination . '"; }</script>';
         }
-
-
-
 
         return $req;
     }

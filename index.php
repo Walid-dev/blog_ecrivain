@@ -2,7 +2,7 @@
 session_start();
 require('controller/frontendController.php');
 
-try { // On essaie de faire des choses
+try {
     if (isset($_POST['login-submit'])) {
         login();
     } elseif (isset($_POST['signup-submit'])) {
@@ -18,7 +18,6 @@ try { // On essaie de faire des choses
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
             } else {
-                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         } elseif ($_GET['action'] == 'addComment') {
@@ -26,11 +25,9 @@ try { // On essaie de faire des choses
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
-                    // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
             } else {
-                // Autre exception
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         } elseif (isset($_SESSION['userId'])) {
@@ -50,6 +47,8 @@ try { // On essaie de faire des choses
                 } elseif ($_GET['action'] == 'edit') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         editArticle();
+                    } else {
+                        throw new Exception('Aucun identifiant de billet envoyé');
                     }
                 } elseif (isset($_POST['update'])) {
                     updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content']);
@@ -64,19 +63,19 @@ try { // On essaie de faire des choses
                 $_SESSION['message'] = "Page reservée aux administrateurs";
                 $_SESSION['msg_type'] = "danger";
 
-                header('Location: index.php');
+                listPosts();
             }
         } else {
             $_SESSION['message'] = "Page reservée aux administrateurs";
             $_SESSION['msg_type'] = "danger";
 
-            header('Location: index.php');
+            listPosts();
         }
     } else {
         listPosts();
     }
 } catch (Exception $e) { // S'il y a eu une erreur, alors...
-    //  require('view/frontend/errorView.php');
     $_SESSION['message'] = $e->getMessage();
     $_SESSION['msg_type'] = "warning";
+    listPosts();
 }

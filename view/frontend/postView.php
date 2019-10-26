@@ -22,7 +22,7 @@
     </div>
 
 
-    <div class="row flex-column col-md-10 pl-0">
+    <div class="row flex-column col-md-10 pl-0 pr-0">
         <div class="row">
             <a class="up btn return_btn mt-5" href="index.php#sectionArticles">Retour à la liste des chapitres</a>
         </div>
