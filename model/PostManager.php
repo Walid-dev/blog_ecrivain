@@ -5,7 +5,8 @@ class PostManager extends Manager
     {
         $db = Manager::dbConnect();
 
-        $req = $db->query('SELECT id FROM posts');
+        $req = $db->prepare('SELECT id FROM posts');
+        $req->execute(array('id'));
         $articlesCount = $req->rowCount($db);
 
         $perPage = 4;
@@ -18,8 +19,8 @@ class PostManager extends Manager
             $cPage = 1;
         }
 
-        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
-
+        $req = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req->execute(array('id'));
         return $req;
     }
 
@@ -41,7 +42,7 @@ class PostManager extends Manager
             $cPage = 1;
         }
 
-        $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        //  $req = $db->query('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
 
 
         for ($i = 1; $i <= $nbPages; $i++) {
@@ -83,13 +84,15 @@ class PostManager extends Manager
     public function deleteFromDataBase($id)
     {
         $db = Manager::dbConnect();
-        $db->query("DELETE FROM posts WHERE id=$id");
+        $deleteArticle = $db->prepare("DELETE FROM posts WHERE id=$id");
+        $deleteArticle->execute(array($id));
         //  $db->query("DELETE FROM comments WHERE post_id=$id");
     }
 
     public function updatePost($id, $author, $title, $content)
     {
         $db = Manager::dbConnect();
-        $db->query("UPDATE posts SET author='$author' , title='$title', content='$content' WHERE id='$id'");
+        $updateArticle = $db->prepare("UPDATE posts SET author='$author' , title='$title', content='$content' WHERE id='$id'");
+        $updateArticle->execute(array($id, $author, $title, $content));
     }
 }

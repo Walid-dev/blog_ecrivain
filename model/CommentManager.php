@@ -12,7 +12,10 @@ class CommentManager extends Manager
     public function deleteComment($id)
     {
         $db = Manager::dbConnect();
-        $db->query("DELETE FROM comments WHERE id=$id");
+        $deleteComment = $db->prepare("DELETE FROM comments WHERE id=$id");
+        $deleteComment->execute(array($id));
+
+        return $deleteComment;
     }
 
     public function getComments($postId)
@@ -37,12 +40,18 @@ class CommentManager extends Manager
     public function signal($id, $variable, $commentStatus)
     {
         $db = Manager::dbConnect();
-        $db->query("UPDATE comments SET report='$variable', comment_status='$commentStatus' WHERE id='$id'");
+        $signalComment = $db->prepare("UPDATE comments SET report='$variable', comment_status='$commentStatus' WHERE id='$id'");
+        $signalComment->execute(array($id, $variable, $commentStatus));
+
+        return $signalComment;
     }
 
     public function validateComment($id)
     {
         $db = Manager::dbConnect();
-        $db->query("UPDATE comments SET comment_status=0, report=0 WHERE id='$id'");
+        $validateComment = $db->prepare("UPDATE comments SET comment_status=0, report=0 WHERE id='$id'");
+        $validateComment->execute(array($id));
+
+        return $validateComment;
     }
 }
