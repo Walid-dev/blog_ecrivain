@@ -222,5 +222,9 @@ function alertMessage()
         // echo '<div class="alert alert-success">Vous etes maintenant connécté.</div>';
         $_SESSION['message'] = "Vous etes maintenant connécté.";
         $_SESSION['msg_type'] = "success";
+    } elseif (isset($_GET['disconnected'])) {
+        // echo '<div class="alert alert-success">Vous etes maintenant connécté.</div>';
+        $_SESSION['message'] = "Vous etes maintenant déconnécté.";
+        $_SESSION['msg_type'] = "warning";
     }
 }
