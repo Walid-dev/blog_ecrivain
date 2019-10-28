@@ -27,9 +27,7 @@
 
     <?php require "view/frontend/headerView.php" ?>
     <div class="main_wrapper">
-        <?php if (isset($_SESSION['message'])) : ?>
-            <?php require "view/frontend/msgAlertView.php" ?>
-        <?php endif ?>
+        <?= displayAlertMessage() ?>
         <?= $content ?>
     </div>
 

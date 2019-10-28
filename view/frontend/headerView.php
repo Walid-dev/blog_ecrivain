@@ -5,7 +5,7 @@
         </a>
 
         <div class="">
-            <?php displayModal(); ?>
+            <?= displayModal() ?>
         </div>
     </nav>
     <div class="title_box text-center mt-2 mb-2">

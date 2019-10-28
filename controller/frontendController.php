@@ -249,3 +249,10 @@ function signalComment($comment)
         $comment['report'];
     }
 }
+
+function displayAlertMessage()
+{
+    if (isset($_SESSION['message'])) {
+        require "view/frontend/msgAlertView.php";
+    }
+}
