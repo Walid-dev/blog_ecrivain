@@ -77,9 +77,12 @@ function addArticle()
 function postArticle($author, $title, $content)
 {
     $postManager = new PostManager();
-    $postManager->postArticle($author, $title, $content);
-
-    echo '<div class="alert alert-success add_article_msg">Article ajouté</div>';
+    if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+        $postManager->postArticle($author, $title, $content);
+        echo '<div class="alert alert-success add_article_msg">Article ajouté</div>';
+    } else {
+        echo '<div class="alert alert-warning add_article_msg">Tous les champs ne sont pas remplis !</div>';
+    }
 }
 
 // Delete article and its comments (using On Delete Cascade)
@@ -174,11 +177,11 @@ function validateComment($id)
 
     header('Location: index.php?action=listComments#tableCommentsTitle');
 
-    $_SESSION['message'] = "L'e commentaire à été validé";
+    $_SESSION['message'] = "Le commentaire à été validé";
     $_SESSION['msg_type'] = "info";
 }
 
-// Information Connection Message
+// Information Message
 function alertMessage()
 {
     if (isset($_GET['error'])) {
