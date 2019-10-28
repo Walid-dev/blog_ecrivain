@@ -5,13 +5,7 @@
         </a>
 
         <div class="">
-            <?php
-            if (isset($_SESSION['userId'])) {
-                require "view/frontend/logModalView.php";
-            } else {
-                require "view/frontend/signupModalView.php";
-            }
-            ?>
+            <?php displayModal(); ?>
         </div>
     </nav>
     <div class="title_box text-center mt-2 mb-2">
@@ -20,5 +14,3 @@
         <hr>
     </div>
 </header>
-
-<?php alertMessage(); ?>

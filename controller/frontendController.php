@@ -33,6 +33,54 @@ function logout()
     $logout = $loginSystemManager->logout();
 }
 
+// Check the usertype and display or not the admin buttons
+function checkUserTypeOnPosts($data)
+{
+    if (isset($_SESSION['usertype'])) {
+        if (($_SESSION['usertype'] == 2)) {
+            require('view/frontend/adminButtonsView.php');
+        }
+    }
+}
+
+// Check the usertype and display or not the admin buttons on the header
+
+function checkUserTypeOnHeader()
+{
+    if (isset($_SESSION['usertype'])) {
+        // Check if the user is an Admin to display admin buttons
+        if (($_SESSION['usertype'] == 2)) {
+            require('view/frontend/adminButtonsView2.php');
+        }
+    }
+}
+
+// Display the sugnup or the login Modal
+
+function displayModal()
+{
+    if (isset($_SESSION['userId'])) {
+        require "view/frontend/logModalView.php";
+    } else {
+        require "view/frontend/signupModalView.php";
+    }
+}
+
+// Check if user and allow to add comment or display the signup modal
+function checkUserTypeToComment($post)
+{
+    if (isset($_SESSION['usertype'])) {
+        if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2) {
+            // Check if the user has an account to be allowed to add a comment
+            require("view/frontend/formCommentView.php");
+        } else {
+            echo "Se connecter ou créer un compte pour ajouter un commentaire";
+        }
+    } else {
+        require("view/frontend/signupModalView.php");
+    }
+}
+
 // Articles Section
 
 // Default Page -> List all posts from the most recent to the oldest
@@ -118,6 +166,16 @@ function updateArticle($id, $author, $title, $content)
     header('Location: index.php#sectionArticles');
 }
 
+function shortArticle($data)
+{
+    $textShortened = $data['content'];
+    if (strlen($textShortened) > 800) {
+        $maxLength = 799;
+        $textShortened = substr($textShortened, 0, $maxLength);
+    }
+    echo  $textShortened . '...';
+}
+
 // Comment Section
 
 
@@ -181,7 +239,13 @@ function validateComment($id)
     $_SESSION['msg_type'] = "info";
 }
 
-
-// Information Message
-function alertMessage()
-{ }
+function signalComment($comment)
+{
+    if ($comment['comment_status'] == 0)
+        // Increase the variable report Onclick to signal the comment
+        {
+            echo $comment['report'] + 1;
+        } else {
+        $comment['report'];
+    }
+}
