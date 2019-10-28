@@ -79,7 +79,7 @@ function postArticle($author, $title, $content)
     $postManager = new PostManager();
     if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
         $postManager->postArticle($author, $title, $content);
-        echo '<div class="alert alert-success add_article_msg">Article ajouté</div>';
+        echo '<div class="alert alert-success add_article_msg">Article à été ajouté</div>';
     } else {
         echo '<div class="alert alert-warning add_article_msg">Tous les champs ne sont pas remplis !</div>';
     }
@@ -181,6 +181,7 @@ function validateComment($id)
     $_SESSION['msg_type'] = "info";
 }
 
+
 // Information Message
 function alertMessage()
 {
@@ -221,10 +222,10 @@ function alertMessage()
     } elseif (isset($_GET['login'])) {
         // echo '<div class="alert alert-success">Vous etes maintenant connécté.</div>';
         $_SESSION['message'] = "Vous etes maintenant connécté.";
-        $_SESSION['msg_type'] = "success";
+        $_SESSION['msg_type'] = "info";
     } elseif (isset($_GET['disconnected'])) {
         // echo '<div class="alert alert-success">Vous etes maintenant connécté.</div>';
         $_SESSION['message'] = "Vous etes maintenant déconnécté.";
-        $_SESSION['msg_type'] = "warning";
+        $_SESSION['msg_type'] = "danger";
     }
 }

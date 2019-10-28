@@ -56,22 +56,16 @@ try {
                     validateComment($_GET['id']);
                 }
             } else {
-                $_SESSION['message'] = "Page reservée aux administrateurs";
-                $_SESSION['msg_type'] = "danger";
-
-                listPosts();
+                throw new Exception('Page reservée aux administrateurs');
             }
         } else {
-            $_SESSION['message'] = "Page reservée aux administrateurs";
-            $_SESSION['msg_type'] = "danger";
-
-            listPosts();
+            throw new Exception('Page reservée aux administrateurs');
         }
     } else {
         listPosts();
     }
 } catch (Exception $e) { // S'il y a eu une erreur, alors...
     $_SESSION['message'] = $e->getMessage();
-    $_SESSION['msg_type'] = "warning";
+    $_SESSION['msg_type'] = "danger";
     listPosts();
 }
