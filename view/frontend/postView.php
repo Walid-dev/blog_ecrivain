@@ -68,23 +68,7 @@
             require("view/frontend/signupModalView.php");
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         ?>
-
-
 
     </div>
 </div>

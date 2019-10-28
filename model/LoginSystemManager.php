@@ -5,10 +5,10 @@ class LoginSystemManager extends Manager
     public function addUser()
     {
         $db = Manager::dbConnect();
-        $username = $_POST['uid'];
-        $email = $_POST['mail'];
-        $password = $_POST['pwd'];
-        $passwordRepeat = $_POST['pwd-repeat'];
+        $username = strip_tags($_POST['uid']);
+        $email = strip_tags($_POST['mail']);
+        $password = strip_tags($_POST['pwd']);
+        $passwordRepeat = strip_tags($_POST['pwd-repeat']);
 
 
         if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
