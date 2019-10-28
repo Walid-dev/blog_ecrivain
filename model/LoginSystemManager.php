@@ -72,9 +72,13 @@ class LoginSystemManager extends Manager
                 $_SESSION['userId'] = $user['idUsers'];
                 $_SESSION['userUid'] = $user['uidUsers'];
                 $_SESSION['usertype'] = $user['type'];
+
                 require('view/frontend/headerView.php');
 
                 header("Location: index.php?login=success");
+
+                $_SESSION['message'] = "Vous etes maintenant connécté.";
+                $_SESSION['msg_type'] = "info";
             } else {
                 header("Location: index.php?error=wrongpwd");
             }
@@ -87,6 +91,7 @@ class LoginSystemManager extends Manager
         session_start();
         session_unset();
         session_destroy();
+
         header("Location: index.php?disconnected");
     }
 }

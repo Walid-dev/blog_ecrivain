@@ -3,7 +3,31 @@ session_start();
 require('controller/frontendController.php');
 
 try {
-    if (isset($_POST['login-submit'])) {
+
+
+    if (isset($_GET['error'])) {
+        if ($_GET['error'] == "emptyfields") {
+            throw new Exception('Tous les champs ne sont pas remplis.');
+        } elseif ($_GET['error'] == "invaliduidmail") {
+            throw new Exception('Email ou pseudo invalide.');
+        } elseif ($_GET['error'] == "invaliduid") {
+            throw new Exception('Email ou pseudo invalide.');
+        } elseif ($_GET['error'] == "invalidmail") {
+            throw new Exception('Email invalide.');
+        } elseif ($_GET['error'] == "passwordcheck") {
+            throw new Exception('Les mots de passe ne se correspondent pas.');
+        } elseif ($_GET['error'] == "usertaken") {
+            throw new Exception('Pseudo déja pris.');
+        } elseif ($_GET['error'] == "emailtaken") {
+            throw new Exception('Email déja pris.');
+        } elseif ($_GET['error'] == "wrongpwd") {
+            throw new Exception('Mot de passe incorrect');
+        }
+    } elseif (isset($_GET['login'])) {
+        listPosts();
+    } elseif (isset($_GET['disconnected'])) {
+        throw new Exception(' Vous etes maintenant déconnécté.');
+    } elseif (isset($_POST['login-submit'])) {
         login();
     } elseif (isset($_POST['signup-submit'])) {
         addUser();
@@ -25,7 +49,7 @@ try {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
-                    throw new Exception('Tous les champs ne sont pas remplis !');
+                    throw new Exception('Tous les champs ne sont pas remplis.');
                 }
             } else {
                 throw new Exception('Aucun identifiant de billet envoyé');
@@ -64,7 +88,7 @@ try {
     } else {
         listPosts();
     }
-} catch (Exception $e) { // S'il y a eu une erreur, alors...
+} catch (Exception $e) {
     $_SESSION['message'] = $e->getMessage();
     $_SESSION['msg_type'] = "danger";
     listPosts();

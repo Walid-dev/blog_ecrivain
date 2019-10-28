@@ -26,31 +26,28 @@
 <body>
 
     <?php require "view/frontend/headerView.php" ?>
-        <div class="main_wrapper">
-            <?php if (isset($_SESSION['message'])) : ?>
-                <div id="infoText" class="alert alert-<?= $_SESSION['msg_type'] ?>">
-                    <?php echo $_SESSION['message'];
-                    unset($_SESSION['message']); ?>
-                </div>
-            <?php endif ?>
-            <?= $content ?>
-        </div>
+    <div class="main_wrapper">
+        <?php if (isset($_SESSION['message'])) : ?>
+            <?php require "view/frontend/msgAlertView.php" ?>
+        <?php endif ?>
+        <?= $content ?>
+    </div>
 
-        <div id="top">
-            <a href="#home"><img src="public/images/top.png" alt=""></a>
-        </div>
+    <div id="top">
+        <a href="#home"><img src="public/images/top.png" alt=""></a>
+    </div>
 
-        <?php require "view/frontend/footerView.php" ?>
-        <script src="public/js/app.js"></script>
-        <script src="public/js/scroll-out.js"></script>
-        <script>
-            ScrollOut({
-                targets: 'h2,h3,p,a,blockquote,.masthead_title,.alert'
-            })
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    </body>
+    <?php require "view/frontend/footerView.php" ?>
+    <script src="public/js/app.js"></script>
+    <script src="public/js/scroll-out.js"></script>
+    <script>
+        ScrollOut({
+            targets: 'h2,h3,p,a,blockquote,.masthead_title,.alert'
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
 
 </html>
