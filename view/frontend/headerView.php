@@ -1,16 +1,20 @@
-<header id="home" class="masthead">
-    <nav class="navbar navbar-expand-lg d-flex d-flex justify-content-between">
-        <a class="navbar-brand" href="#">
-            <img src="https://media.giphy.com/media/OqAeQrRDGhKc4Viqfj/giphy.gif" width="70" height="70" alt="">
-        </a>
-
-        <div class="">
-            <?= displayModal() ?>
+<div class="nav_wrapper">
+    <nav>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
+
+        <div id="logoBox" class="ml-2">
+            <a href=""><img class="logo img-fluid" src="public/images/netflix.png" alt="logo"></a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#part1">About</a></li>
+            <li><a href="#part2">Courses</a></li>
+            <li><a href="#part3">Content</a></li>
+            <li><a href="#part4">Projects</a></li>
+        </ul>
     </nav>
-    <div class="title_box text-center mt-2 mb-2">
-        <hr>
-        <h1 class="masthead_title">"Billet simple pour l'Alaska"</h1>
-        <hr>
-    </div>
-</header>
+</div>
